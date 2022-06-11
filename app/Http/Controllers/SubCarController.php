@@ -43,7 +43,11 @@ class SubCarController extends Controller
      public function destroy($id){
         $role = subCar::findOrFail($id);
         $role->delete();
-        unlink(public_path($role->image));
+        if($role->image != NULL){
+            unlink(public_path($role->image));
+        }else{
+
+        }
         return back()->with('delete', __('messages.deleteSuccess'));
 
     }
