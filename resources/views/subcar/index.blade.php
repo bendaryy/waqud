@@ -101,9 +101,14 @@
                                         <td>{{ $car->model }}</td>
                                         <td>{{ $car->engine_type }}</td>
                                         <td>
+                                            @if($car->image != NULL)
                                             <a href="{{ url($car->image) }}" target="_blank">
-                                                <img src="{{ url($car->image) }}" alt="pic">
+                                                <img src="{{ url($car->image) }}" alt="car image">
+
                                             </a>
+                                            @else
+                                            <p>@lang('messages.no car')</p>
+                                            @endif
                                         </td>
                                         <td>
                                             {{-- <a class="btn btn-secondary" style="padding: 10px" href="{{ route('users.edit',$user->id) }}">@lang('messages.edit')</a>
@@ -187,7 +192,7 @@
                                 <input type="text" class="form-control file-upload-info" disabled
                                     placeholder="Upload Image">
                                 <span class="input-group-append">
-                                    <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+                                    <button class="file-upload-browse btn btn-primary" type="button">@lang('messages.upload image')</button>
                                 </span>
                             </div>
                         </div>

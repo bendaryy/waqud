@@ -77,10 +77,10 @@ Route::group(
             Route::resource('subcar', SubCarController::class);
 
         });
-        Route::get('/storage-link', function () {
-            Artisan::call('storage:link');
-            return 'The links have been created.';
-        });
+        // Route::get('/storage-link', function () {
+        //     Artisan::call('storage:link');
+        //     return 'The links have been created.';
+        // });
 
         // Route::get('test', [UserController::class, 'test']);
 
