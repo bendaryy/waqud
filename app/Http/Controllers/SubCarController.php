@@ -22,6 +22,11 @@ class SubCarController extends Controller
 
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            'main_car' => 'required',
+            'sub_car' => 'required',
+        ]);
+
         $subcar = new subCar();
         $subcar->main_car = $request->main_car;
         $subcar->sub_car = $request->sub_car;
@@ -32,7 +37,7 @@ class SubCarController extends Controller
             $file = $request->file('image');
             $extension = $file->getClientOriginalExtension();
             $fileName = time() . '.' . $extension;
-            $mainName =  $file->storeAs('public/cars', $fileName);
+            $mainName = $file->storeAs('public/cars', $fileName);
             $subcar->image = "storage/cars/$fileName";
         }
 
@@ -40,12 +45,13 @@ class SubCarController extends Controller
         return redirect()->back()->with('success', __('messages.car added successfully'));
     }
 
-     public function destroy($id){
+    public function destroy($id)
+    {
         $role = subCar::findOrFail($id);
         $role->delete();
-        if($role->image != NULL){
+        if ($role->image != null) {
             unlink(public_path($role->image));
-        }else{
+        } else {
 
         }
         return back()->with('delete', __('messages.deleteSuccess'));

@@ -101,13 +101,13 @@
                                         <td>{{ $car->model }}</td>
                                         <td>{{ $car->engine_type }}</td>
                                         <td>
-                                            @if($car->image != NULL)
-                                            <a href="{{ url($car->image) }}" target="_blank">
-                                                <img src="{{ url($car->image) }}" alt="car image">
+                                            @if ($car->image != null)
+                                                <a href="{{ url($car->image) }}" target="_blank">
+                                                    <img src="{{ url($car->image) }}" alt="car image">
 
-                                            </a>
+                                                </a>
                                             @else
-                                            <p>@lang('messages.no car')</p>
+                                                <p>@lang('messages.no car')</p>
                                             @endif
                                         </td>
                                         <td>
@@ -116,8 +116,8 @@
                                             <form method="POST" action="{{ route('subcar.destroy', $car->id) }}">
                                                 @method('delete')
                                                 @csrf
-                                                <button type="submit" class="btn btn-danger"
-                                                    style="padding: 10px" onclick="return confirm('@lang('messages.sure')');">@lang('messages.delete')</button>
+                                                <button type="submit" class="btn btn-danger" style="padding: 10px"
+                                                    onclick="return confirm('@lang('messages.sure')');">@lang('messages.delete')</button>
                                             </form>
                                         </td>
                                     </tr>
@@ -168,11 +168,17 @@
                                         {{ $car->name }}</option>
                                 @endforeach
                             </select>
+                            @error('main_car')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                         </div>
 
                         <div class="form-group">
                             <label for="carName" class="col-form-label">@lang('messages.car name')</label>
                             <input type="text" name="sub_car" class="form-control" id="carName">
+                             @error('sub_car')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                         </div>
 
                         <div class="form-group">
@@ -192,7 +198,8 @@
                                 <input type="text" class="form-control file-upload-info" disabled
                                     placeholder="Upload Image">
                                 <span class="input-group-append">
-                                    <button class="file-upload-browse btn btn-primary" type="button">@lang('messages.upload image')</button>
+                                    <button class="file-upload-browse btn btn-primary"
+                                        type="button">@lang('messages.upload image')</button>
                                 </span>
                             </div>
                         </div>
