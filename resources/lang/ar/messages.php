@@ -60,4 +60,5 @@ return [
     "car type"=>'نوع السيارة',
      "engine type"=>'نوع المحرك',
      "image" => 'صــورة',
+    "upload image" => 'رفع صورة السيارة',
 ];

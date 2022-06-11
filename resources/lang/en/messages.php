@@ -60,4 +60,5 @@ return [
     "car type" => 'car type',
     "engine type" => 'engine type',
     "image" => 'image',
+    "upload image" => 'upload car image',
 ];

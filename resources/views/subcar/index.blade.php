@@ -100,11 +100,20 @@
                                         <td>{{ $car->sub_car }}</td>
                                         <td>{{ $car->model }}</td>
                                         <td>{{ $car->engine_type }}</td>
-                                        <td>{{ $car->image }}</td>
+                                        <td>
+                                            <a href="{{ url($car->image) }}" target="_blank">
+                                                <img src="{{ url($car->image) }}" alt="pic">
+                                            </a>
+                                        </td>
                                         <td>
                                             {{-- <a class="btn btn-secondary" style="padding: 10px" href="{{ route('users.edit',$user->id) }}">@lang('messages.edit')</a>
-                                        <a class="btn btn-info" style="padding: 10px" href="{{ route('AddsyncCompany',$user->id) }}">@lang('messages.addCompanyUser')</a>
-                                        <a class="btn btn-danger" style="padding: 10px" href="{{ route('EditDetachCompany',$user->id) }}">@lang('messages.deleteCompanyUser')</a> --}}
+                                        <a class="btn btn-info" style="padding: 10px" href="{{ route('AddsyncCompany',$user->id) }}">@lang('messages.addCompanyUser')</a> --}}
+                                            <form method="POST" action="{{ route('subcar.destroy', $car->id) }}">
+                                                @method('delete')
+                                                @csrf
+                                                <button type="submit" class="btn btn-danger"
+                                                    style="padding: 10px" onclick="return confirm('@lang('messages.sure')');">@lang('messages.delete')</button>
+                                            </form>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -131,7 +140,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form method="post" action="{{ route('subcar.store') }}">
+                    <form method="post" action="{{ route('subcar.store') }}" enctype="multipart/form-data">
                         @method('post')
                         @csrf
 
@@ -169,6 +178,18 @@
                         <div class="form-group">
                             <label for="engineType" class="col-form-label">@lang('messages.engine type')</label>
                             <input type="text" name="engine_type" class="form-control" id="engineType">
+                        </div>
+
+                        <div class="form-group">
+                            <label>@lang('messages.upload image')</label>
+                            <input type="file" name="image" class="file-upload-default">
+                            <div class="input-group col-xs-12">
+                                <input type="text" class="form-control file-upload-info" disabled
+                                    placeholder="Upload Image">
+                                <span class="input-group-append">
+                                    <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+                                </span>
+                            </div>
                         </div>
 
 

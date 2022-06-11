@@ -74,8 +74,7 @@ Route::group(
             })->name('dashboard');
             // main cars
             Route::resource('main-cars', MainCarController::class);
-            Route::resource('subcar', SubCarController::class)->except('create');
-            Route::get('subcarCreate', [subCarController::class, 'create'])->name('subcar.create');
+            Route::resource('subcar', SubCarController::class);
 
         });
         // Route::get('test', [UserController::class, 'test']);
