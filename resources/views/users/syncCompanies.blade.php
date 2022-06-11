@@ -34,6 +34,9 @@
          #basic-btn2_wrapper {
              margin: 20px
          }
+         .select2-container--default .select2-selection--multiple .select2-selection__rendered{
+            background-color: white;
+         }
 
      </style>
  @endsection
