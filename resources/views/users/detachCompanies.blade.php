@@ -34,7 +34,6 @@
          #basic-btn2_wrapper {
              margin: 20px
          }
-
      </style>
  @endsection
 
@@ -123,11 +122,6 @@
 
 
 
-     </div>
-     <div style="margin: auto;text-align: center">
-
-         <button type="submit" class="btn btn-success" style="padding:20px;font-weight: bold">@lang('messages.submit')</button>
-     </div>
      </div>
  @endsection
 

@@ -74,7 +74,7 @@
 
         <div class="card">
             <div class="card-header table-card-header">
-                <h4 style="color: white;text-align: center">@lang('messages.roles')</h4>
+                <h4 style="color: white;text-align: center">@lang('messages.users')</h4>
             </div>
             <div class="card-block">
                 <div class="dt-responsive table-responsive">
