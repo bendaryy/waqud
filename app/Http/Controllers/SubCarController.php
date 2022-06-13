@@ -25,6 +25,7 @@ class SubCarController extends Controller
         $validated = $request->validate([
             'main_car' => 'required',
             'sub_car' => 'required',
+            'company' => 'required',
         ]);
 
         $subcar = new subCar();

@@ -62,4 +62,5 @@ return [
     "image" => 'image',
     "upload image" => 'upload car image',
     "no car"=>'no car image',
+    "delete user"=>'delete this user',
 ];

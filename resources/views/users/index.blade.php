@@ -84,6 +84,7 @@
                                 <th id="thead">@lang('messages.Name')</th>
                                 <th id="thead">@lang('messages.Email')</th>
                                 <th id="thead">@lang('messages.action')</th>
+                                <th id="thead">@lang('messages.delete')</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -95,6 +96,13 @@
                                         <a class="btn btn-secondary" style="padding: 10px" href="{{ route('users.edit',$user->id) }}">@lang('messages.edit')</a>
                                         <a class="btn btn-info" style="padding: 10px" href="{{ route('AddsyncCompany',$user->id) }}">@lang('messages.addCompanyUser')</a>
                                         <a class="btn btn-danger" style="padding: 10px" href="{{ route('EditDetachCompany',$user->id) }}">@lang('messages.deleteCompanyUser')</a>
+                                    </td>
+                                    <td>
+                                        <form method="post" action={{ route('users.destroy',$user->id) }}>
+                                            @csrf
+                                            @method('delete')
+                                            <button class="btn btn-danger" style="padding: 10px" onclick="return confirm('@lang('messages.sure')');">@lang('messages.delete user')</button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach

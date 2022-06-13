@@ -62,6 +62,17 @@
                     {{ session('delete') }}
                 </div>
             @endif
+
+
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
         </div>
 
 
@@ -176,7 +187,7 @@
                         <div class="form-group">
                             <label for="carName" class="col-form-label">@lang('messages.car name')</label>
                             <input type="text" name="sub_car" class="form-control" id="carName">
-                             @error('sub_car')
+                            @error('sub_car')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                         </div>

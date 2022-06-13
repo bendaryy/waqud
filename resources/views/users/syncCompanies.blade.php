@@ -34,10 +34,10 @@
          #basic-btn2_wrapper {
              margin: 20px
          }
-         .select2-container--default .select2-selection--multiple .select2-selection__rendered{
-            background-color: white;
-         }
 
+         .select2-container--default .select2-selection--multiple .select2-selection__rendered {
+             background-color: white;
+         }
      </style>
  @endsection
  @section('content')
@@ -76,14 +76,18 @@
                  </div>
              </div>
          </div>
+         <div style="margin:50px auto;text-align: center">
+
+             <button type="submit" class="btn btn-success" style="padding:20px;font-weight: bold">@lang('messages.submit')</button>
+         </div>
+     </form>
+
+     <div class="col-12">
+         <div class="row">
+             <div class="col-3" style="margin: auto">
 
 
-         <div class="col-12">
-             <div class="row">
-                 <div class="col-3" style="margin: auto">
-
-
-                     {{-- <div class="form-group">
+                 {{-- <div class="form-group">
                  <label>@lang('messages.addCompany')</label>
                  <select class="js-example-basic-multiple" multiple="multiple" style="width:100%" name="company[]">
                      @foreach ($companies as $company)
@@ -92,42 +96,38 @@
                      @endforeach
                  </select>
              </div> --}}
-                 </div>
-                 <div class="col-12 text-center">
-                     <div class="table-responsive">
-                         <table id="order-listing2" class="table">
-                             <thead>
+             </div>
+             <div class="col-12 text-center">
+                 <div class="table-responsive">
+                     <table id="order-listing2" class="table">
+                         <thead>
+                             <tr>
+                                 <th id="thead">#</th>
+                                 <th id="thead">@lang('messages.Name')</th>
+                                 <th id="thead">@lang('messages.companyName')</th>
+
+
+                             </tr>
+                         </thead>
+                         <tbody>
+                             @foreach ($CompanyUser as $key => $company)
                                  <tr>
-                                     <th id="thead">#</th>
-                                     <th id="thead">@lang('messages.Name')</th>
-                                     <th id="thead">@lang('messages.companyName')</th>
-
-
+                                     <td>{{ $key + 1 }}</td>
+                                     <td>{{ $company->users->name }}</td>
+                                     <td>{{ $company->companies->name }}</td>
                                  </tr>
-                             </thead>
-                             <tbody>
-                                 @foreach ($CompanyUser as $key => $company)
-                                     <tr>
-                                         <td>{{ $key + 1 }}</td>
-                                         <td>{{ $company->users->name }}</td>
-                                         <td>{{ $company->companies->name }}</td>
-                                     </tr>
-                                 @endforeach
-                             </tbody>
-                         </table>
-                     </div>
+                             @endforeach
+                         </tbody>
+                     </table>
                  </div>
              </div>
-
-
-
          </div>
-         <div style="margin: auto;text-align: center">
 
-             <button type="submit" class="btn btn-success" style="padding:20px;font-weight: bold">@lang('messages.submit')</button>
-         </div>
-         </div>
-     </form>
+
+
+     </div>
+
+
 
      {{-- @foreach ($CompanyUser as $company)
          <p style="color:white"> {{ $company->companies->name }}</p>
