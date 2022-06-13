@@ -63,4 +63,9 @@ return [
     "upload image" => 'upload car image',
     "no car"=>'no car image',
     "delete user"=>'delete this user',
+    "carId"=>'car id',
+    "car image"=>'car image',
+    "car letters"=>'car letters',
+    "car numbers"=>'car numbers',
+    "show car details" => 'show car details',
 ];

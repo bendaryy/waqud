@@ -31,6 +31,8 @@ class SubCarController extends Controller
         $subcar = new subCar();
         $subcar->main_car = $request->main_car;
         $subcar->sub_car = $request->sub_car;
+        $subcar->car_letters = $request->car_letters;
+        $subcar->car_numbers = $request->car_numbers;
         $subcar->model = $request->model;
         $subcar->engine_type = $request->engine_type;
         $subcar->company = $request->company;
@@ -44,6 +46,11 @@ class SubCarController extends Controller
 
         $subcar->save();
         return redirect()->back()->with('success', __('messages.car added successfully'));
+    }
+
+    public function show($id,$companyCar){
+        $subCar = subCar::findOrFail($id);
+        return view ('subcar.show',compact('subCar','companyCar'));
     }
 
     public function destroy($id)

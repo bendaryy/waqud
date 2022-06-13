@@ -97,6 +97,8 @@
                                     <th id="thead">@lang('messages.companyName')</th>
                                     <th id="thead">@lang('messages.mainCars')</th>
                                     <th id="thead">@lang('messages.car name')</th>
+                                    <th id="thead">@lang('messages.car letters')</th>
+                                    <th id="thead">@lang('messages.car numbers')</th>
                                     <th id="thead">@lang('messages.car model')</th>
                                     <th id="thead">@lang('messages.engine type')</th>
                                     <th id="thead">@lang('messages.image')</th>
@@ -106,9 +108,11 @@
                             <tbody>
                                 @foreach ($subCars as $car)
                                     <tr>
-                                        <td>{{ $car->company }}</td>
+                                        <td>{{ $car->companies->name }}</td>
                                         <td>{{ $car->main_car }}</td>
                                         <td>{{ $car->sub_car }}</td>
+                                        <td>{{ $car->car_letters }}</td>
+                                        <td>{{ $car->car_numbers }}</td>
                                         <td>{{ $car->model }}</td>
                                         <td>{{ $car->engine_type }}</td>
                                         <td>
@@ -124,12 +128,14 @@
                                         <td>
                                             {{-- <a class="btn btn-secondary" style="padding: 10px" href="{{ route('users.edit',$user->id) }}">@lang('messages.edit')</a>
                                         <a class="btn btn-info" style="padding: 10px" href="{{ route('AddsyncCompany',$user->id) }}">@lang('messages.addCompanyUser')</a> --}}
-                                            <form method="POST" action="{{ route('subcar.destroy', $car->id) }}">
+                                            <form method="POST" action="{{ route('subcar.destroy', $car->id) }}" style="display: inline">
                                                 @method('delete')
                                                 @csrf
                                                 <button type="submit" class="btn btn-danger" style="padding: 10px"
                                                     onclick="return confirm('@lang('messages.sure')');">@lang('messages.delete')</button>
                                             </form>
+                                            {{-- <a class="btn btn-primary" style="padding:10px" href="{{URL::route('subcar.show', [$car->id, $car->company] )}}">show</a> --}}
+                                            <a class="btn btn-primary" style="padding:10px" href="{{ route('subcar.show',[$car->id,$car->company]) }}">@lang('messages.show car details')</a>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -164,7 +170,7 @@
                             <label>@lang('messages.companyName')</label>
                             <select class="js-example-basic-single" style="width:100%" name="company">
                                 @foreach ($companyUser as $company)
-                                    <option value="{{ $company->companies->name }}">
+                                    <option value="{{ $company->companies->id }}">
                                         {{ $company->companies->name }}</option>
                                 @endforeach
                             </select>
@@ -191,6 +197,26 @@
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                         </div>
+
+
+                        <div class="form-group">
+                            <label for="carName" class="col-form-label">@lang('messages.car letters')</label>
+                            <input type="text" name="car_letters" class="form-control" id="carName">
+                            @error('car_letters')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <div class="form-group">
+                            <label for="carName" class="col-form-label">@lang('messages.car numbers')</label>
+                            <input type="number" name="car_numbers" class="form-control" id="carName">
+                            @error('car_numbers')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+
+
 
                         <div class="form-group">
                             <label for="model" class="col-form-label">@lang('messages.car model')</label>

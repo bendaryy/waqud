@@ -20,10 +20,14 @@ class CreateSubCarsTable extends Migration
             $table->string('model')->nullable();
             $table->string('engine_type')->nullable();
             $table->string('image')->nullable();
-            $table->string('company')->nullable();
-            $table->string('field2')->nullable();
-            $table->string('field3')->nullable();
+            // $table->string('company');
+            $table->foreignId('company')->constrained("companies")->onUpdate('cascade')->onDelete('cascade');
+
+            $table->string('car_letters')->nullable();
+            $table->string('car_numbers')->nullable();
             $table->string('field4')->nullable();
+            $table->string('field5')->nullable();
+            $table->string('field6')->nullable();
             $table->timestamps();
         });
     }

@@ -74,7 +74,9 @@ Route::group(
             })->name('dashboard');
             // main cars
             Route::resource('main-cars', MainCarController::class);
-            Route::resource('subcar', SubCarController::class);
+            // sub cars
+            Route::resource('subcar', SubCarController::class)->except('show');
+            Route::get('subcar/carId={companyId}/companyId={companyCar}',[SubCarController::class,'show'])->name('subcar.show');
 
         });
         // Route::get('/storage-link', function () {
