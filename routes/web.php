@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\petrolController;
+use App\Http\Controllers\PetrolController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\MainCarController;
 use App\Http\Controllers\PermissionController;
@@ -78,7 +78,7 @@ Route::group(
             // sub cars
             Route::resource('subcar', SubCarController::class)->except('show');
             Route::get('subcar/carId={companyId}/companyId={companyCar}',[SubCarController::class,'show'])->name('subcar.show');
-            Route::resource('petrol', petrolController::class);
+            Route::resource('petrol', PetrolController::class);
 
         });
         // Route::get('/storage-link', function () {
