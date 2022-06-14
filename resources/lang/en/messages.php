@@ -68,4 +68,5 @@ return [
     "car letters"=>'car letters',
     "car numbers"=>'car numbers',
     "show car details" => 'show car details',
+     "follow petrol" => 'follow petrol',
 ];

@@ -168,7 +168,7 @@
 
                         <div class="form-group">
                             <label>@lang('messages.companyName')</label>
-                            <select class="js-example-basic-single" style="width:100%" name="company">
+                            <select class="js-example-basic-single" style="width:100%" required name="company">
                                 @foreach ($companyUser as $company)
                                     <option value="{{ $company->companies->id }}">
                                         {{ $company->companies->name }}</option>

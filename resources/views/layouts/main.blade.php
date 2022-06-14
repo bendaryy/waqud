@@ -185,6 +185,21 @@
 
                     </ul>
                 </div>
+
+
+            {{-- dashboard --}}
+
+
+            <li class="nav-item menu-items">
+                <a class="nav-link" href="{{ route('dashboard') }}">
+                    <span class="menu-icon">
+                        <i class="fa-solid fa-gas-pump" style="color: white"></i>
+                    </span>
+                    <span class="menu-title">@lang('messages.follow petrol')</span>
+                </a>
+            </li>
+
+
             </li>
 
         </ul>
