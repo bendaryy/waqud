@@ -15,10 +15,12 @@ class CreatePetrolsTable extends Migration
     {
         Schema::create('petrols', function (Blueprint $table) {
             $table->id();
-            $table->string('companyId');
-            $table->string('carId');
+            // $table->string('companyId');
+            // $table->string('carId');
             $table->string('litre');
             $table->string('pound');
+            $table->foreignId('companyId')->constrained("companies")->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('carId')->constrained("sub_cars")->onUpdate('cascade')->onDelete('cascade');
             $table->string('field1')->nullable();
             $table->string('field2')->nullable();
             $table->string('field3')->nullable();

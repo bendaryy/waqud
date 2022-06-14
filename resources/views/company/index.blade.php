@@ -149,6 +149,10 @@
                             <input type="phone" name="phone" class="form-control" id="phone">
                         </div>
 
+                        <div class="form-group">
+                            <label for="address" class="col-form-label">@lang('messages.companyAddress')</label>
+                            <input type="text" required name="address" class="form-control" id="address">
+                        </div>
 
                 </div>
                 <div class="modal-footer">

@@ -191,7 +191,7 @@
 
 
             <li class="nav-item menu-items">
-                <a class="nav-link" href="{{ route('dashboard') }}">
+                <a class="nav-link" href="{{ route('petrol.index') }}">
                     <span class="menu-icon">
                         <i class="fa-solid fa-gas-pump" style="color: white"></i>
                     </span>
