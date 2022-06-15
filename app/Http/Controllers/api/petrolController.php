@@ -23,10 +23,10 @@ class petrolController extends Controller
         $petrol->litre = $request->litre;
         $petrol->pound = $request->pound;
 
-
         if ($request->companyId != 0 && $request->carId != 0) {
-             $petrol->save();
-            return ['success', $request->all()];
+            $result = $petrol->save();
+            return (object) ['data' => $request->all(), "msg" => "Product inserted successfully",
+                "status" => true];
         } else {
             return "يوجد خطأ بالبيانات";
         }
