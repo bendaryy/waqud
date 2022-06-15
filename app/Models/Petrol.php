@@ -10,4 +10,11 @@ class Petrol extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    public function company(){
+        return $this->belongsTo(Company::class,'companyId','id');
+    }
+    public function car(){
+        return $this->belongsTo(subCar::class,'carId','id');
+    }
 }

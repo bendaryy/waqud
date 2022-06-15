@@ -69,4 +69,6 @@ return [
     "car numbers" => 'car numbers',
     "show car details" => 'show car details',
     "follow petrol" => 'follow petrol',
+    "liter" => 'liters',
+    "price" => 'price',
 ];

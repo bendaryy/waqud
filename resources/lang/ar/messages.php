@@ -69,4 +69,6 @@ return [
     "car numbers" => 'ارقام السيارة',
     "show car details" => 'عرض بيانات السيارة',
     "follow petrol" => 'متابعة البنزين',
+    "liter" => 'عدد اللترات',
+    "price" => 'الســعر',
 ];
