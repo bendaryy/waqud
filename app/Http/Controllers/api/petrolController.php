@@ -3,23 +3,33 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Petrol;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class petrolController extends Controller
 {
-     public function index(){
+    public function index()
+    {
         $petrol = Petrol::all();
         return $petrol;
     }
 
-    public function store(Request $request){
-        $petrol  = new petrol;
+    public function store(Request $request)
+    {
+        $petrol = new petrol;
         $petrol->companyId = $request->companyId;
         $petrol->carId = $request->carId;
         $petrol->litre = $request->litre;
         $petrol->pound = $request->pound;
 
-        $petrol->save();
+
+        if ($request->companyId != 0 && $request->carId != 0) {
+             $petrol->save();
+            return ['success', $request->all()];
+        } else {
+            return "يوجد خطأ بالبيانات";
+        }
+
     }
 }
