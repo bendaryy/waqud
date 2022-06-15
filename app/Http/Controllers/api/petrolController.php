@@ -25,7 +25,7 @@ class petrolController extends Controller
 
         if ($request->companyId != 0 && $request->carId != 0) {
             $result = $petrol->save();
-            return (object) ['data' => $request->all(), "msg" => "Product inserted successfully",
+            return (object) ['data' => $request->all(), "msg" => "inserted successfully",
                 "status" => true];
         } else {
             return "يوجد خطأ بالبيانات";
