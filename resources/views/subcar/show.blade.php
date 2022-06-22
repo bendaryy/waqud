@@ -68,9 +68,13 @@
             <tr>
                 <th>@lang('messages.car image')</th>
                 <td>
+                    @if($subCar->image != null)
                     <a href="{{ url($subCar->image) }}" target="_blank">
                         <img src="{{ url($subCar->image) }}" width=300 height=300 alt="car image">
                     </a>
+                    @else
+                       @lang('messages.no car')
+                    @endif
                 </td>
             </tr>
 
