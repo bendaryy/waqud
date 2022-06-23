@@ -11,7 +11,7 @@ class petrolController extends Controller
 {
     public function index()
     {
-        $petrol = Petrol::all();
+        $petrol = Petrol::with("company")->with('car')->get();
         return $petrol;
     }
 
