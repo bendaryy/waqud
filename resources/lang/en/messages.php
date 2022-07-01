@@ -12,7 +12,7 @@ return [
     "logout" => 'logout',
     "password_confirmation" => 'password confirmation',
     "add user" => 'Add User',
-    "users" => 'Users',
+    "users" => 'all users',
     "show users" => 'show all users',
     "add user" => 'add new user',
     "roles" => 'roles',

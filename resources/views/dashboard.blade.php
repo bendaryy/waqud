@@ -45,6 +45,53 @@
         </div>
 
 
+          <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
+            <div class="card">
+                <a href="{{ route('users.companyuser') }}" style="text-decoration: none;color:white">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-9">
+                                <div class="d-flex align-items-center align-self-start">
+                                    <h3 class="mb-0">@lang('messages.company users')</h3>
+                                    {{-- <p class="text-success ms-2 mb-0 font-weight-medium">+11%</p> --}}
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="icon icon-box-success">
+                                    <span class="mdi mdi-arrow-top-right icon-item"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <h6 class="text-muted font-weight-normal">@lang('messages.go to') @lang('messages.company users')</h6>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+          <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
+            <div class="card">
+                <a href="{{ route('users.stationuser') }}" style="text-decoration: none;color:white">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-9">
+                                <div class="d-flex align-items-center align-self-start">
+                                    <h3 class="mb-0">@lang('messages.station users')</h3>
+                                    {{-- <p class="text-success ms-2 mb-0 font-weight-medium">+11%</p> --}}
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="icon icon-box-success">
+                                    <span class="mdi mdi-arrow-top-right icon-item"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <h6 class="text-muted font-weight-normal">@lang('messages.go to') @lang('messages.station users')</h6>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+
          <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
             <div class="card">
                 <a href="{{ route('permissions.index') }}" style="text-decoration: none;color:white">
