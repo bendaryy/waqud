@@ -1,10 +1,12 @@
 <?php
 
-use App\Http\Controllers\PetrolController;
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\companyuser\myCompaniesController;
 use App\Http\Controllers\MainCarController;
 use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\PetrolController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\stationuser\stationUserController;
 use App\Http\Controllers\SubCarController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
@@ -61,6 +63,8 @@ Route::group(
             Route::resource('permissions', PermissionController::class);
             // users
             Route::resource('users', UserController::class);
+            Route::get('userCompany', [UserController::class, 'companyUser'])->name('users.companyuser');
+            Route::get('stationuser', [UserController::class, 'stationUser'])->name('users.stationuser');
             // sync companies
             Route::get('syncCompany/{id}', [UserController::class, 'EditsyncCompanies'])->name('EditsyncCompany');
             Route::post('syncCompany/{id}', [UserController::class, 'AddsyncCompanies'])->name('AddsyncCompany');
@@ -77,10 +81,22 @@ Route::group(
             Route::resource('main-cars', MainCarController::class);
             // sub cars
             Route::resource('subcar', SubCarController::class)->except('show');
-            Route::get('subcar/carId={companyId}/companyId={companyCar}',[SubCarController::class,'show'])->name('subcar.show');
+            Route::get('subcar/carId={companyId}/companyId={companyCar}', [SubCarController::class, 'show'])->name('subcar.show');
             Route::resource('petrol', PetrolController::class);
 
+            //start companyUser section
+            Route::resource('companyUserSection', myCompaniesController::class);
+            Route::get('companyCars/{id}', [myCompaniesController::class, 'cars'])->name('companyCars');
+            Route::get('carpetrol/{id}', [myCompaniesController::class, 'carPetrol'])->name('carpetrol');
+            Route::get('companypetrol/{id}', [myCompaniesController::class, 'companyPetrol'])->name('companypetrol');
         });
+        //end companyUser section
+
+
+        //  end station user section
+        Route::resource('station', stationUserController::class);
+            //  start station user section
+
         // Route::get('/storage-link', function () {
         //     Artisan::call('storage:link');
         //     return 'The links have been created.';

@@ -207,7 +207,7 @@
                                      @enderror
                                  </div>
                              </div>
-                             <div class="media d-block d-sm-flex">
+                             <div class="media d-block d-sm-flex mb-5">
                                  {{-- <img class="me-3 w-25 rounded" src="../../../assets/images/samples/300x300/13.jpg"
                                  alt="sample image"> --}}
 
@@ -219,6 +219,42 @@
                                          value="{{ $user->email }}" required autocomplete="email">
 
                                      @error('email')
+                                         <span class="invalid-feedback" role="alert">
+                                             <strong>{{ $message }}</strong>
+                                         </span>
+                                     @enderror
+                                 </div>
+                             </div>
+                             <div class="media d-block d-sm-flex mb-5">
+                                 {{-- <img class="me-3 w-25 rounded" src="../../../assets/images/samples/300x300/13.jpg"
+                                 alt="sample image"> --}}
+
+                                 <label for="phone" class="col-md-4 col-form-label ">{{ __('messages.phone') }}</label>
+
+                                 <div class="col-md-6">
+                                     <input id="phone" type="number"
+                                         class="form-control text-center @error('phone') is-invalid @enderror" name="phone"
+                                         value="{{ $user->phone }}"  autocomplete="phone">
+
+                                     @error('phone')
+                                         <span class="invalid-feedback" role="alert">
+                                             <strong>{{ $message }}</strong>
+                                         </span>
+                                     @enderror
+                                 </div>
+                             </div>
+                             <div class="media d-block d-sm-flex mb-5">
+                                 {{-- <img class="me-3 w-25 rounded" src="../../../assets/images/samples/300x300/13.jpg"
+                                 alt="sample image"> --}}
+
+                                 <label for="address" class="col-md-4 col-form-label ">{{ __('messages.address') }}</label>
+
+                                 <div class="col-md-6">
+                                     <input id="address" type="text"
+                                         class="form-control text-center @error('address') is-invalid @enderror" name="address"
+                                         value="{{ $user->address }}"  autocomplete="address">
+
+                                     @error('address')
                                          <span class="invalid-feedback" role="alert">
                                              <strong>{{ $message }}</strong>
                                          </span>

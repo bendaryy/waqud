@@ -86,6 +86,8 @@
                                     <th id="thead">@lang('messages.Name')</th>
                                     <th id="thead">@lang('messages.Email')</th>
                                     <th id="thead">@lang('messages.phone')</th>
+                                    <th id="thead">@lang('messages.taxNumber')</th>
+                                    <th id="thead">@lang('messages.segalTogary')</th>
                                     <th id="thead">@lang('messages.companyAddress')</th>
                                     <th id="thead">@lang('messages.action')</th>
                                 </tr>
@@ -96,6 +98,8 @@
                                         <td>{{ $company->name }}</td>
                                         <td>{{ $company->email }}</td>
                                         <td>{{ $company->phone }}</td>
+                                        <td>{{ $company->tax_number }}</td>
+                                        <td>{{ $company->segal_togary }}</td>
                                         <td>{{ $company->address }}</td>
                                         <td>
                                             <form method="post" action="{{ route('company.destroy', $company->id) }}">
@@ -151,7 +155,17 @@
 
                         <div class="form-group">
                             <label for="address" class="col-form-label">@lang('messages.companyAddress')</label>
-                            <input type="text" required name="address" class="form-control" id="address">
+                            <input type="text"  name="address" class="form-control" id="address">
+                        </div>
+
+                         <div class="form-group">
+                            <label for="tax_number" class="col-form-label">@lang('messages.taxNumber')</label>
+                            <input type="text"  name="tax_number" class="form-control" id="tax_number">
+                        </div>
+
+                         <div class="form-group">
+                            <label for="segal_togary" class="col-form-label">@lang('messages.segalTogary')</label>
+                            <input type="text"  name="segal_togary" class="form-control" id="segal_togary">
                         </div>
 
                 </div>

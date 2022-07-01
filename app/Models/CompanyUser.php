@@ -16,4 +16,8 @@ class CompanyUser extends Model
     public function companies(){
         return $this->belongsTo(Company::class,'company_id');
     }
+
+    public function cars(){
+        return $this->belongsTo(subCar::class, 'company_id','company');
+    }
 }

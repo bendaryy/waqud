@@ -21,7 +21,7 @@ class CreatePetrolsTable extends Migration
             $table->string('pound');
             $table->foreignId('companyId')->constrained("companies")->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('carId')->constrained("sub_cars")->onUpdate('cascade')->onDelete('cascade');
-            $table->string('field1')->nullable();
+            $table->string('userId')->nullable();
             $table->string('field2')->nullable();
             $table->string('field3')->nullable();
             $table->string('field4')->nullable();

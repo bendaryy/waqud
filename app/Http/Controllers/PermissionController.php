@@ -7,15 +7,15 @@ use Spatie\Permission\Models\Permission;
 
 class PermissionController extends Controller
 {
-    //  public function __construct()
-    // {
+     public function __construct()
+    {
 
-    //     $this->middleware('role:super_admin', ['only' => ['index']]);
-    //     $this->middleware('role:super_admin', ['only' => ['create', 'store']]);
-    //     $this->middleware('role:super_admin', ['only' => ['edit', 'update']]);
-    //     $this->middleware('role:super_admin', ['only' => ['destroy']]);
+        $this->middleware('role:super_admin', ['only' => ['index']]);
+        $this->middleware('role:super_admin', ['only' => ['create', 'store']]);
+        $this->middleware('role:super_admin', ['only' => ['edit', 'update']]);
+        $this->middleware('role:super_admin', ['only' => ['destroy']]);
 
-    // }
+    }
     public function index()
     {
         $permissions = Permission::all();

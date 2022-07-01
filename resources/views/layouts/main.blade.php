@@ -75,7 +75,7 @@
 
             {{-- users --}}
 
-
+            @role('super_admin')
             <li class="nav-item menu-items">
                 <a class="nav-link" data-bs-toggle="collapse" href="#tables" aria-expanded="false"
                     aria-controls="tables">
@@ -94,12 +94,20 @@
                     <ul class="nav flex-column sub-menu">
                         <li class="nav-item"> <a class="nav-link"
                                 href="{{ route('users.index') }}">@lang('messages.show users')</a></li>
+
+                        <li class="nav-item"> <a class="nav-link"
+                                href="{{ route('users.companyuser') }}">@lang('messages.show company users')</a></li>
+
+                        <li class="nav-item"> <a class="nav-link"
+                                href="{{ route('users.stationuser') }}">@lang('messages.show station users')</a></li>
+
                         <li class="nav-item"> <a class="nav-link" href="{{ route('users.create') }}">
                                 @lang('messages.add user')</a></li>
 
                     </ul>
                 </div>
             </li>
+
 
 
             {{-- roles and permissions --}}
@@ -122,8 +130,7 @@
                     <ul class="nav flex-column sub-menu">
                         <li class="nav-item"> <a class="nav-link"
                                 href="{{ route('roles.index') }}">@lang('messages.showRoles')</a></li>
-                        <li class="nav-item"> <a class="nav-link"
-                                href="{{ route('permissions.index') }}">
+                        <li class="nav-item"> <a class="nav-link" href="{{ route('permissions.index') }}">
                                 @lang('messages.showPermissions')</a></li>
 
                     </ul>
@@ -142,9 +149,11 @@
                     <span class="menu-title">@lang('messages.companies')</span>
                     {{-- <i class="menu-arrow"></i> --}}
                     @if (LaravelLocalization::getCurrentLocale() == 'en')
-                        <i class="fa-solid fa-arrow-down" style="line-height: 1;margin-left: auto;margin-right: 0"></i>
+                        <i class="fa-solid fa-arrow-down"
+                            style="line-height: 1;margin-left: auto;margin-right: 0"></i>
                     @else
-                        <i class="fa-solid fa-arrow-down" style="margin-left: 0;margin-right: auto;line-height: 1"></i>
+                        <i class="fa-solid fa-arrow-down"
+                            style="margin-left: 0;margin-right: auto;line-height: 1"></i>
                     @endif
                 </a>
                 <div class="collapse" id="company">
@@ -171,9 +180,11 @@
                     <span class="menu-title">@lang('messages.cars')</span>
                     {{-- <i class="menu-arrow"></i> --}}
                     @if (LaravelLocalization::getCurrentLocale() == 'en')
-                        <i class="fa-solid fa-arrow-down" style="line-height: 1;margin-left: auto;margin-right: 0"></i>
+                        <i class="fa-solid fa-arrow-down"
+                            style="line-height: 1;margin-left: auto;margin-right: 0"></i>
                     @else
-                        <i class="fa-solid fa-arrow-down" style="margin-left: 0;margin-right: auto;line-height: 1"></i>
+                        <i class="fa-solid fa-arrow-down"
+                            style="margin-left: 0;margin-right: auto;line-height: 1"></i>
                     @endif
                 </a>
                 <div class="collapse" id="mainCar">
@@ -187,7 +198,7 @@
                 </div>
 
 
-            {{-- dashboard --}}
+                {{-- petrol --}}
 
 
             <li class="nav-item menu-items">
@@ -198,9 +209,38 @@
                     <span class="menu-title">@lang('messages.follow petrol')</span>
                 </a>
             </li>
+            @endrole
 
 
+
+            @role('company')
+             <li class="nav-item menu-items">
+                <a class="nav-link" href="{{ route('companyUserSection.index') }}">
+                    <span class="menu-icon">
+                        <i class="fa-solid fa-building" style="color: white"></i>
+                    </span>
+                    <span class="menu-title">@lang('messages.show my companies')</span>
+                </a>
             </li>
+
+            @endrole
+            @role('station')
+             <li class="nav-item menu-items">
+                <a class="nav-link" href="{{ route('station.index') }}">
+                    <span class="menu-icon">
+                        <i class="fa-solid fa-building" style="color: white"></i>
+                    </span>
+                    <span class="menu-title">@lang('messages.show station companies')</span>
+                </a>
+            </li>
+
+            @endrole
+
+
+
+
+
+
 
         </ul>
     </nav>
@@ -209,11 +249,13 @@
         <!-- partial:partials/_navbar.html -->
         <nav class="navbar p-0 fixed-top d-flex flex-row">
             <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
-                <a class="navbar-brand brand-logo-mini" href="index.html"><img src="{{ asset('images/logo.png') }}"
-                        style="width: 200px;height:50px" alt="logo" /></a>
+                <a class="navbar-brand brand-logo-mini" href="index.html"><img
+                        src="{{ asset('images/logo.png') }}" style="width: 200px;height:50px"
+                        alt="logo" /></a>
             </div>
             <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
-                <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+                <button class="navbar-toggler navbar-toggler align-self-center" type="button"
+                    data-toggle="minimize">
                     <span class="mdi mdi-menu"></span>
                 </button>
                 {{-- <ul class="navbar-nav w-100">

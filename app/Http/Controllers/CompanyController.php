@@ -7,6 +7,15 @@ use Illuminate\Http\Request;
 
 class CompanyController extends Controller
 {
+       public function __construct()
+    {
+
+        $this->middleware('role:super_admin', ['only' => ['index']]);
+        $this->middleware('role:super_admin', ['only' => ['create', 'store']]);
+        $this->middleware('role:super_admin', ['only' => ['edit', 'update']]);
+        $this->middleware('role:super_admin', ['only' => ['destroy']]);
+
+    }
     public function index()
     {
         $companies = Company::all();
@@ -20,6 +29,8 @@ class CompanyController extends Controller
         $company->address = $request->address;
         $company->email = $request->email;
         $company->phone = $request->phone;
+        $company->tax_number = $request->tax_number;
+        $company->segal_togary = $request->segal_togary;
         $company->save();
         return redirect()->back()->with('success', __("messages.success"));
     }
@@ -36,6 +47,8 @@ class CompanyController extends Controller
         $company->address = $request->address;
         $company->email = $request->email;
         $company->phone = $request->phone;
+         $company->tax_number = $request->tax_number;
+        $company->segal_togary = $request->segal_togary;
         $company->update();
         return redirect()->route('company.index')->with('success', __("messages.editSuccess"));
     }

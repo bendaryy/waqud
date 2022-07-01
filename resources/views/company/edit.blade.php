@@ -25,8 +25,18 @@
 
                      <div class="form-group">
                         <label for="address" class="col-form-label">@lang('messages.companyAddress')</label>
-                        <input type="text" required name="address" value="{{ $company->address }}" class="form-control" id="name">
+                        <input type="text"  name="address" value="{{ $company->address }}" class="form-control" id="name">
                     </div>
+
+                      <div class="form-group">
+                            <label for="tax_number" class="col-form-label">@lang('messages.taxNumber')</label>
+                            <input type="text"  name="tax_number" value="{{ $company->tax_number }}" class="form-control" id="tax_number">
+                        </div>
+
+                         <div class="form-group">
+                            <label for="segal_togary" class="col-form-label">@lang('messages.segalTogary')</label>
+                            <input type="text"  name="segal_togary" value="{{ $company->segal_togary }}" class="form-control" id="segal_togary">
+                        </div>
 
 
             </div>

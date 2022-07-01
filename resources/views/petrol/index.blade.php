@@ -85,6 +85,8 @@
                                 <tr>
                                     <th id="thead">@lang('messages.companyName')</th>
                                     <th id="thead">@lang('messages.car name')</th>
+                                    <th id="thead">@lang('messages.car letters')</th>
+                                    <th id="thead">@lang('messages.car numbers')</th>
                                     <th id="thead">@lang('messages.liter')</th>
                                     <th id="thead">@lang('messages.price')</th>
                                     <th id="thead">@lang('messages.action')</th>
@@ -95,6 +97,8 @@
                                     <tr>
                                         <td>{{ $petrol->company->name }}</td>
                                         <td>{{ $petrol->car->sub_car }}</td>
+                                        <td>{{ $petrol->car->car_letters }}</td>
+                                        <td>{{ $petrol->car->car_numbers }}</td>
                                         <td>{{ $petrol->litre }}</td>
                                         <td>{{ $petrol->pound }}</td>
                                         <td>

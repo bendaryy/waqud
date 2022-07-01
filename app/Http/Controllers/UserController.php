@@ -12,11 +12,36 @@ use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
+
+    public function __construct()
+    {
+
+        $this->middleware('role:super_admin', ['only' => ['index']]);
+        $this->middleware('role:super_admin', ['only' => ['companyUser', 'EditsyncCompanies', 'AddsyncCompanies', "EditDetachCompanies", 'DetachCompanies']]);
+        $this->middleware('role:super_admin', ['only' => ['stationUser']]);
+        $this->middleware('role:super_admin', ['only' => ['create', 'store']]);
+        $this->middleware('role:super_admin', ['only' => ['edit', 'update']]);
+        $this->middleware('role:super_admin', ['only' => ['destroy']]);
+
+    }
+
     public function index()
     {
         $users = User::all();
         return view('users.index', compact('users'));
     }
+
+    public function companyUser()
+    {
+        $users = User::role('company')->get();
+        return view('users.companyuser', compact('users'));
+    }
+    public function stationUser()
+    {
+        $users = User::role('station')->get();
+        return view('users.stationuser', compact('users'));
+    }
+
     public function create()
     {
         return view('users.create');
@@ -36,7 +61,7 @@ class UserController extends Controller
         $input['password'] = Hash::make($input['password']);
 
         $user = User::create($input);
-        $user->syncRoles("user");
+        $user->syncRoles($request->role);
         // $user->syncPermissions("عرض ملفاتى");
         // $user->assignRole($request->input('roles_name'));
         return redirect()->route('users.index')->with('success', __('messages.success'));
