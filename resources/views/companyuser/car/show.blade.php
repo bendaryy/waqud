@@ -64,38 +64,38 @@
                         <div class="table-responsive">
                             <table class="table text-center" style="border: none !important">
 
-                                    <tr style="border: none !important">
-                                        <td style="border: none !important">@lang('messages.companyName') </td>
-                                        <td style="border: none !important">{{$car->companies->name}} </td>
-                                    </tr>
-                                    <tr style="border: none !important">
-                                        <td style="border: none !important">@lang('messages.car brand') </td>
-                                        <td style="border: none !important">{{$car->main_car}} </td>
-                                    </tr>
+                                <tr style="border: none !important">
+                                    <td style="border: none !important">@lang('messages.companyName') </td>
+                                    <td style="border: none !important">{{ $car->companies->name }} </td>
+                                </tr>
+                                <tr style="border: none !important">
+                                    <td style="border: none !important">@lang('messages.car brand') </td>
+                                    <td style="border: none !important">{{ $car->main_car }} </td>
+                                </tr>
 
-                                    <tr style="border: none !important">
-                                        <td style="border: none !important">@lang('messages.car type') </td>
-                                        <td style="border: none !important">{{$car->sub_car}} </td>
-                                    </tr>
+                                <tr style="border: none !important">
+                                    <td style="border: none !important">@lang('messages.car type') </td>
+                                    <td style="border: none !important">{{ $car->sub_car }} </td>
+                                </tr>
 
-                                    <tr style="border: none !important">
-                                        <td style="border: none !important">@lang('messages.car letters') </td>
-                                        <td style="border: none !important">{{$car->car_letters}} </td>
-                                    </tr>
+                                <tr style="border: none !important">
+                                    <td style="border: none !important">@lang('messages.car letters') </td>
+                                    <td style="border: none !important">{{ $car->car_letters }} </td>
+                                </tr>
 
-                                    <tr style="border: none !important">
-                                        <td style="border: none !important">@lang('messages.car numbers') </td>
-                                        <td style="border: none !important">{{$car->car_numbers}} </td>
-                                    </tr>
+                                <tr style="border: none !important">
+                                    <td style="border: none !important">@lang('messages.car numbers') </td>
+                                    <td style="border: none !important">{{ $car->car_numbers }} </td>
+                                </tr>
 
-                                    <tr style="border: none !important">
-                                        <td style="border: none !important">@lang('messages.car model') </td>
-                                        <td style="border: none !important">{{$car->model}} </td>
-                                    </tr>
-                                    <tr style="border: none !important">
-                                        <td style="border: none !important">@lang('messages.engine type') </td>
-                                        <td style="border: none !important">{{$car->engine_type}} </td>
-                                    </tr>
+                                <tr style="border: none !important">
+                                    <td style="border: none !important">@lang('messages.car model') </td>
+                                    <td style="border: none !important">{{ $car->model }} </td>
+                                </tr>
+                                <tr style="border: none !important">
+                                    <td style="border: none !important">@lang('messages.engine type') </td>
+                                    <td style="border: none !important">{{ $car->engine_type }} </td>
+                                </tr>
 
 
 
@@ -148,7 +148,10 @@
                                     <th id="thead">@lang('messages.date')</th>
                                     <th id="thead">@lang('messages.liter')</th>
                                     <th id="thead">@lang('messages.price')</th>
-
+                                    <th id="thead">@lang('messages.kilometres')</th>
+                                    <th id="thead">@lang('messages.Consumption rate per plate')</th>
+                                    <th id="thead">@lang('messages.Consumption rate per 100 kilo')</th>
+                                    <th id="thead">@lang('messages.kilos per liter')</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -157,7 +160,14 @@
                                         <td> {{ Carbon\Carbon::parse($petrol->created_at)->format('d-m-Y') }}</td>
                                         <td>{{ $petrol->litre }}</td>
                                         <td>{{ $petrol->pound }}</td>
-
+                                        @if($petrol->kiloNumbers == null)
+                                         <td> <a class="btn btn-success" style="padding:10px" href="{{ route('kilopetrol',$petrol->id) }}">@lang('messages.add kilometres')</a></td>
+                                        @else
+                                        <td>{{ $petrol->kiloNumbers }}</td>
+                                        @endif
+                                        <td>{{ $petrol->safy7aNumbers }}</td>
+                                        <td>{{ $petrol->hundredNumbers }}</td>
+                                        <td>{{ $petrol->kilosperliter }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -231,6 +241,7 @@
             $("#basic-btn2").DataTable({
                 dom: "Bfrtip",
                 buttons: ["copy", "csv", "excel"],
+               order: [[0, 'desc']],
 
             });
         </script>

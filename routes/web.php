@@ -89,6 +89,7 @@ Route::group(
             Route::get('companyCars/{id}', [myCompaniesController::class, 'cars'])->name('companyCars');
             Route::get('carpetrol/{id}', [myCompaniesController::class, 'carPetrol'])->name('carpetrol');
             Route::get('companypetrol/{id}', [myCompaniesController::class, 'companyPetrol'])->name('companypetrol');
+            Route::get('kilopetrol/{id}', [myCompaniesController::class, 'editKilo'])->name('kilopetrol');
         });
         //end companyUser section
 

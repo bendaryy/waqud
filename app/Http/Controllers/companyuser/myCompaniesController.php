@@ -7,6 +7,7 @@ use App\Models\Company;
 use App\Models\CompanyUser;
 use App\Models\Petrol;
 use App\Models\subCar;
+use Illuminate\Http\Request;
 
 class myCompaniesController extends Controller
 {
@@ -45,13 +46,35 @@ class myCompaniesController extends Controller
     {
         $petrols = Petrol::where('carId', $id)->get();
         $car = subCar::find($id);
-        return view('companyuser.car.show', compact('petrols', 'id','car'));
+        return view('companyuser.car.show', compact('petrols', 'id', 'car'));
     }
 
-    public function companyPetrol($id){
-        $petrols = Petrol::where('companyId',$id)->get();
+    public function companyPetrol($id)
+    {
+        $petrols = Petrol::where('companyId', $id)->get();
         $company = Company::find($id);
-        return view('companyuser.car.petrol',compact('petrols','company'));
+        return view('companyuser.car.petrol', compact('petrols', 'company'));
+    }
+
+    public function editKilo($id)
+    {
+        $petrol = Petrol::findOrFail($id);
+        return view('companyuser.petrol.edit', compact('petrol'));
+    }
+
+    public function update($id, Request $request)
+    {
+        $petrol = Petrol::find($id);
+
+        $petrol->kiloNumbers = $request->kiloNumbers;
+        $petrol->safy7aNumbers = $request->safy7aNumbers;
+        $petrol->hundredNumbers = $request->hundredNumbers;
+        $petrol->kilosperliter = $request->kilosperliter;
+        $petrol->created_at = $request->created_at;
+        $petrol->update();
+        return redirect()->route('carpetrol',$petrol->car->id)->with('success', __("messages.editSuccess"));
+
+
     }
 
 }

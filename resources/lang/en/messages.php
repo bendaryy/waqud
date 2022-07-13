@@ -85,5 +85,12 @@ return [
     "date" => "date",
     "show station companies" => "show station companies",
     "show all petrol status" => "show all petrol proccess for this company",
-    'show'=>'show'
+    'show' => 'show',
+    'kilometres' => 'kilometres',
+    "Consumption rate per plate" => 'Consumption rate per plate (20 litre)',
+    "Consumption rate per 100 kilo" => 'Consumption rate per (100 kilometer)',
+    'add kilometres' => 'add kilometres',
+    'kilos per liter' => 'kilos per liter',
+    'kilos per safy7a' => 'Kilometers per plate',
+    'litres per 100 kilo' => 'litres per 100 kilo',
 ];

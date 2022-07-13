@@ -91,6 +91,7 @@
                                     <th id="thead">@lang('messages.liter')</th>
                                     <th id="thead">@lang('messages.price')</th>
 
+
                                 </tr>
                             </thead>
                             <tbody>
@@ -102,6 +103,7 @@
                                         <td>{{ $petrol->car->car_numbers }}</td>
                                         <td>{{ $petrol->litre }}</td>
                                         <td>{{ $petrol->pound }}</td>
+
 
                                     </tr>
                                 @endforeach

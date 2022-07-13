@@ -85,5 +85,12 @@ return [
     "date" => "التــاريــخ",
     "show station companies" => "عرض الشركات الخاصة بالمحطة",
     "show all petrol status" => "عرض جميع عمليات البنزين لهذه الشركة",
-    'show'=>'عرض'
+    'show' => 'عرض',
+    'kilometres' => 'عدد الكيلومترات',
+    "Consumption rate per plate" => 'معدل الإستهلاك للصفيحة الواحدة (20 لتر)',
+    "Consumption rate per 100 kilo" => 'معدل الإستهلاك لكل (100 كيلومتر)',
+    'add kilometres' => 'إضافة الكيلومترات',
+    'kilos per liter' => 'عدد الكيلومترات للتر الواحد',
+    'kilos per safy7a' => 'عدد الكيلومترات للصفيحة الواحدة',
+     'litres per 100 kilo' => 'عدد اللترات لكل 100 كيلو',
 ];
