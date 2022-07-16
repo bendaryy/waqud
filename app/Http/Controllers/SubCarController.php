@@ -24,7 +24,8 @@ class SubCarController extends Controller
 
     public function index()
     {
-        $companyUser = CompanyUser::where('user_id', auth()->user()->id)->get();
+        // $companyUser = CompanyUser::where('user_id', auth()->user()->id)->get();
+        $companyUser = CompanyUser::all();
         $mainCars = MainCar::all();
         $subCars = subCar::all();
         return view('subcar.index', compact('subCars', 'mainCars', 'companyUser'));
