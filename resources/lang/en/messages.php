@@ -93,4 +93,8 @@ return [
     'kilos per liter' => 'kilos per liter',
     'kilos per safy7a' => 'Kilometers per plate',
     'litres per 100 kilo' => 'litres per 100 kilo',
+    'follow petrol this week' => 'follow petrol this week',
+    'follow petrol last week' => 'follow petrol last week',
+    'follow petrol this month' => 'follow petrol this month',
+    'follow petrol last month' => 'follow petrol last month',
 ];

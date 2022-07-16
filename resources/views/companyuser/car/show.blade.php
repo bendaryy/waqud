@@ -132,13 +132,41 @@
         </div> --}}
 
     </div>
+    @if (Route::is('carPetrolThisWeek'))
+        <a class="btn btn-secondary" href="{{ route('carPetrolThisWeek', $id) }}">@lang('messages.follow petrol this week')</a>
+    @else
+        <a class="btn btn-success" href="{{ route('carPetrolThisWeek', $id) }}">@lang('messages.follow petrol this week')</a>
+    @endif
 
+
+    @if (Route::is('carPetrolThisMonth'))
+        <a class="btn btn-secondary" href="{{ route('carPetrolThisMonth', $id) }}">@lang('messages.follow petrol this month')</a>
+    @else
+        <a class="btn btn-success" href="{{ route('carPetrolThisMonth', $id) }}">@lang('messages.follow petrol this month')</a>
+    @endif
+
+
+    @if (Route::is('carPetrolLastWeek'))
+        <a class="btn btn-secondary" href="{{ route('carPetrolLastWeek', $id) }}">@lang('messages.follow petrol last week')</a>
+    @else
+        <a class="btn btn-success" href="{{ route('carPetrolLastWeek', $id) }}">@lang('messages.follow petrol last week')</a>
+    @endif
+
+    @if (Route::is('carPetrolLastMonth'))
+        <a class="btn btn-secondary" href="{{ route('carPetrolLastMonth', $id) }}">@lang('messages.follow petrol last month')</a>
+    @else
+        <a class="btn btn-success" href="{{ route('carPetrolLastMonth', $id) }}">@lang('messages.follow petrol last month')</a>
+    @endif
     <div class="row">
         <div class="col-12">
 
             <div class="card">
                 <div class="card-header table-card-header">
-                    <h4 style="color: white;text-align: center">@lang('messages.follow petrol')</h4>
+                    @if (Route::is('carPetrolThisWeek'))
+                        <h4 style="color: white;text-align: center">@lang('messages.follow petrol this week')</h4>
+                    @else
+                        <h4 style="color: white;text-align: center">@lang('messages.follow petrol')</h4>
+                    @endif
                 </div>
                 <div class="card-block">
                     <div class="dt-responsive table-responsive">
@@ -160,10 +188,12 @@
                                         <td> {{ Carbon\Carbon::parse($petrol->created_at)->format('d-m-Y') }}</td>
                                         <td>{{ $petrol->litre }}</td>
                                         <td>{{ $petrol->pound }}</td>
-                                        @if($petrol->kiloNumbers == null)
-                                         <td> <a class="btn btn-success" style="padding:10px" href="{{ route('kilopetrol',$petrol->id) }}">@lang('messages.add kilometres')</a></td>
+                                        @if ($petrol->kiloNumbers == null)
+                                            <td> <a class="btn btn-success" style="padding:10px"
+                                                    href="{{ route('kilopetrol', $petrol->id) }}">@lang('messages.add kilometres')</a>
+                                            </td>
                                         @else
-                                        <td>{{ $petrol->kiloNumbers }}</td>
+                                            <td>{{ $petrol->kiloNumbers }}</td>
                                         @endif
                                         <td>{{ $petrol->safy7aNumbers }}</td>
                                         <td>{{ $petrol->hundredNumbers }}</td>
@@ -241,7 +271,9 @@
             $("#basic-btn2").DataTable({
                 dom: "Bfrtip",
                 buttons: ["copy", "csv", "excel"],
-               order: [[0, 'desc']],
+                order: [
+                    [0, 'desc']
+                ],
 
             });
         </script>

@@ -8,6 +8,7 @@ use App\Models\CompanyUser;
 use App\Models\Petrol;
 use App\Models\subCar;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 
 class myCompaniesController extends Controller
 {
@@ -45,6 +46,50 @@ class myCompaniesController extends Controller
     public function carPetrol($id)
     {
         $petrols = Petrol::where('carId', $id)->get();
+        // $petrols = Petrol::where('carId', $id)->whereMonth(
+        //     'created_at', '=', Carbon::now()->subMonth()->month
+        // )->get();
+
+        $car = subCar::find($id);
+        return view('companyuser.car.show', compact('petrols', 'id', 'car'));
+    }
+    public function carPetrolThisWeek($id)
+    {
+        $petrols = Petrol::where('carId', $id)->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->get();
+        // $petrols = Petrol::where('carId', $id)->whereMonth(
+        //     'created_at', '=', Carbon::now()->subMonth()->month
+        // )->get();
+
+        $car = subCar::find($id);
+        return view('companyuser.car.show', compact('petrols', 'id', 'car'));
+    }
+    public function carPetrolLastWeek($id)
+    {
+        $currentDate = Carbon::now();
+        $petrols = Petrol::where('carId', $id)->where('created_at', '>=',Carbon::now()->subdays(15))->get();
+        // $petrols = Petrol::where('carId', $id)->whereMonth(
+        //     'created_at', '=', Carbon::now()->subMonth()->month
+        // )->get();
+
+        $car = subCar::find($id);
+        return view('companyuser.car.show', compact('petrols', 'id', 'car'));
+    }
+    public function carPetrolThisMonth($id)
+    {
+        $petrols = Petrol::where('carId', $id)->whereBetween('created_at', [Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()])->get();
+        // $petrols = Petrol::where('carId', $id)->whereMonth(
+        //     'created_at', '=', Carbon::now()->subMonth()->month
+        // )->get();
+
+        $car = subCar::find($id);
+        return view('companyuser.car.show', compact('petrols', 'id', 'car'));
+    }
+    public function carPetrolLastMonth($id)
+    {
+        $petrols = Petrol::where('carId', $id)->whereMonth(
+            'created_at', '=', Carbon::now()->subMonth()->month
+        )->get();
+
         $car = subCar::find($id);
         return view('companyuser.car.show', compact('petrols', 'id', 'car'));
     }
@@ -72,8 +117,7 @@ class myCompaniesController extends Controller
         $petrol->kilosperliter = $request->kilosperliter;
         $petrol->created_at = $request->created_at;
         $petrol->update();
-        return redirect()->route('carpetrol',$petrol->car->id)->with('success', __("messages.editSuccess"));
-
+        return redirect()->route('carpetrol', $petrol->car->id)->with('success', __("messages.editSuccess"));
 
     }
 

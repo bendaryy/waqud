@@ -87,7 +87,16 @@ Route::group(
             //start companyUser section
             Route::resource('companyUserSection', myCompaniesController::class);
             Route::get('companyCars/{id}', [myCompaniesController::class, 'cars'])->name('companyCars');
+            // all times
             Route::get('carpetrol/{id}', [myCompaniesController::class, 'carPetrol'])->name('carpetrol');
+            // this week
+            Route::get('carpetrolThisWeek/{id}', [myCompaniesController::class, 'carPetrolThisWeek'])->name('carPetrolThisWeek');
+            // this month
+            Route::get('carpetrolThisMonth/{id}', [myCompaniesController::class, 'carPetrolThisMonth'])->name('carPetrolThisMonth');
+            // last month
+            Route::get('carpetrolLastMonth/{id}', [myCompaniesController::class, 'carPetrolLastMonth'])->name('carPetrolLastMonth');
+            // this last week
+            Route::get('carpetrolLastWeek/{id}', [myCompaniesController::class, 'carPetrolLastWeek'])->name('carPetrolLastWeek');
             Route::get('companypetrol/{id}', [myCompaniesController::class, 'companyPetrol'])->name('companypetrol');
             Route::get('kilopetrol/{id}', [myCompaniesController::class, 'editKilo'])->name('kilopetrol');
         });

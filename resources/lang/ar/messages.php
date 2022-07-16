@@ -93,4 +93,8 @@ return [
     'kilos per liter' => 'عدد الكيلومترات للتر الواحد',
     'kilos per safy7a' => 'عدد الكيلومترات للصفيحة الواحدة',
      'litres per 100 kilo' => 'عدد اللترات لكل 100 كيلو',
+     'follow petrol this week' => 'متابعة البنزين هذا الأسبوع',
+     'follow petrol last week' => 'متابعة البنزين  الأسبوع الماضى',
+     'follow petrol this month' => 'متابعة البنزين هذا الشهر',
+     'follow petrol last month' => 'متابعة البنزين الشهر الماضى',
 ];
