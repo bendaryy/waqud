@@ -133,27 +133,27 @@
 
     </div>
     @if (Route::is('carPetrolThisWeek'))
-        <a class="btn btn-secondary" href="{{ route('carPetrolThisWeek', $id) }}">@lang('messages.follow petrol this week')</a>
+        <a style="padding:10px" class="btn btn-secondary" href="{{ route('carPetrolThisWeek', $id) }}">@lang('messages.follow petrol this week')</a>
     @else
         <a class="btn btn-success" href="{{ route('carPetrolThisWeek', $id) }}">@lang('messages.follow petrol this week')</a>
     @endif
 
 
     @if (Route::is('carPetrolThisMonth'))
-        <a class="btn btn-secondary" href="{{ route('carPetrolThisMonth', $id) }}">@lang('messages.follow petrol this month')</a>
+        <a style="padding:10px" class="btn btn-secondary" href="{{ route('carPetrolThisMonth', $id) }}">@lang('messages.follow petrol this month')</a>
     @else
         <a class="btn btn-success" href="{{ route('carPetrolThisMonth', $id) }}">@lang('messages.follow petrol this month')</a>
     @endif
 
 
     @if (Route::is('carPetrolLastWeek'))
-        <a class="btn btn-secondary" href="{{ route('carPetrolLastWeek', $id) }}">@lang('messages.follow petrol last week')</a>
+        <a style="padding:10px" class="btn btn-secondary" href="{{ route('carPetrolLastWeek', $id) }}">@lang('messages.follow petrol last week')</a>
     @else
         <a class="btn btn-success" href="{{ route('carPetrolLastWeek', $id) }}">@lang('messages.follow petrol last week')</a>
     @endif
 
     @if (Route::is('carPetrolLastMonth'))
-        <a class="btn btn-secondary" href="{{ route('carPetrolLastMonth', $id) }}">@lang('messages.follow petrol last month')</a>
+        <a style="padding:10px" class="btn btn-secondary" href="{{ route('carPetrolLastMonth', $id) }}">@lang('messages.follow petrol last month')</a>
     @else
         <a class="btn btn-success" href="{{ route('carPetrolLastMonth', $id) }}">@lang('messages.follow petrol last month')</a>
     @endif
