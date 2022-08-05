@@ -22,6 +22,8 @@ class petrolController extends Controller
         $petrol->carId = $request->carId;
         $petrol->litre = $request->litre;
         $petrol->pound = $request->pound;
+        $petrol->ekramyat = $request->ekramyat;
+        $petrol->all_costs = $request->all_costs;
         $petrol->user_id = $request->user_id;
         $petrol->all_kilometers = $request->all_kilometers;
 
