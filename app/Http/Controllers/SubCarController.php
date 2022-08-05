@@ -59,7 +59,7 @@ class SubCarController extends Controller
         return redirect()->back()->with('success', __('messages.car added successfully'));
     }
 
-    public function show($id,$companyCar){
+    public function show($id,$companyCar,$carLetters,$car_numbers){
         $subCar = subCar::findOrFail($id);
         return view ('subcar.show',compact('subCar','companyCar'));
     }

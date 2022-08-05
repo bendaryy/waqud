@@ -135,7 +135,7 @@
                                                     onclick="return confirm('@lang('messages.sure')');">@lang('messages.delete')</button>
                                             </form>
                                             {{-- <a class="btn btn-primary" style="padding:10px" href="{{URL::route('subcar.show', [$car->id, $car->company] )}}">show</a> --}}
-                                            <a class="btn btn-primary" style="padding:10px" href="{{ route('subcar.show',[$car->id,$car->company]) }}">@lang('messages.show car details')</a>
+                                            <a class="btn btn-primary" style="padding:10px" href="{{ route('subcar.show',[$car->id,$car->company,$car->car_letters,$car->car_numbers]) }}">@lang('messages.show car details')</a>
                                         </td>
                                     </tr>
                                 @endforeach

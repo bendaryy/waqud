@@ -81,7 +81,7 @@ Route::group(
             Route::resource('main-cars', MainCarController::class);
             // sub cars
             Route::resource('subcar', SubCarController::class)->except('show');
-            Route::get('subcar/carId={companyId}/companyId={companyCar}', [SubCarController::class, 'show'])->name('subcar.show');
+            Route::get('subcar/carId={companyId}/companyId={companyCar}/carLetters={carLetters}/carNumbers={carNumbers}', [SubCarController::class, 'show'])->name('subcar.show');
             Route::resource('petrol', PetrolController::class);
 
             //start companyUser section
