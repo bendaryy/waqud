@@ -54,16 +54,6 @@
             </button>
         </p>
 
-        {{-- <div class="row">
-            <div class="col-9" style="margin: auto">
-              <span>@lang('messages.car letters') :  {{ $car->car_letters }}</span></br>
-              <span>@lang('messages.car numbers') :  {{ $car->car_numbers }}</span></br>
-              <span>@lang('messages.car brand') :  {{ $car->main_car }}</span></br>
-              <span>@lang('messages.car type') :  {{ $car->sub_car }}</span></br>
-              <span>@lang('messages.car model') :  {{ $car->model }}</span></br>
-            </div>
-        </div> --}}
-
         <div class="row collapse" style="" id="collapseExample">
             <div class="col-9 grid-margin" style="margin:30px auto; ">
                 <div class="card" style="border-radius: 50px">
