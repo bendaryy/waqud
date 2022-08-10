@@ -45,7 +45,7 @@ class myCompaniesController extends Controller
 
     public function carPetrol($id)
     {
-        $petrols = Petrol::where('carId', $id)->get();
+        $petrols = Petrol::where('carId', $id)->orderBy('created_at','desc')->get();
         // $petrols = Petrol::where('carId', $id)->whereMonth(
         //     'created_at', '=', Carbon::now()->subMonth()->month
         // )->get();

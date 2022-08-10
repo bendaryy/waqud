@@ -271,10 +271,7 @@
             $("#basic-btn2").DataTable({
                 dom: "Bfrtip",
                 buttons: ["copy", "csv", "excel"],
-                order: [
-                    [0, 'desc']
-                ],
-
+                ordering:false
             });
         </script>
         <script></script>
