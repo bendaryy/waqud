@@ -46,6 +46,14 @@
 @endsection
 @section('content')
     <div class="container">
+        <p>
+
+            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
+                aria-expanded="false" aria-controls="collapseExample">
+               @lang('messages.show car details')
+            </button>
+        </p>
+
         {{-- <div class="row">
             <div class="col-9" style="margin: auto">
               <span>@lang('messages.car letters') :  {{ $car->car_letters }}</span></br>
@@ -56,7 +64,7 @@
             </div>
         </div> --}}
 
-        <div class="row" style="">
+        <div class="row collapse" style="" id="collapseExample">
             <div class="col-9 grid-margin" style="margin:30px auto; ">
                 <div class="card" style="border-radius: 50px">
                     <div class="card-body">
@@ -133,27 +141,31 @@
 
     </div>
     @if (Route::is('carPetrolThisWeek'))
-        <a style="padding:10px" class="btn btn-secondary" href="{{ route('carPetrolThisWeek', $id) }}">@lang('messages.follow petrol this week')</a>
+        <a style="padding:10px" class="btn btn-secondary"
+            href="{{ route('carPetrolThisWeek', $id) }}">@lang('messages.follow petrol this week')</a>
     @else
         <a class="btn btn-success" href="{{ route('carPetrolThisWeek', $id) }}">@lang('messages.follow petrol this week')</a>
     @endif
 
 
     @if (Route::is('carPetrolThisMonth'))
-        <a style="padding:10px" class="btn btn-secondary" href="{{ route('carPetrolThisMonth', $id) }}">@lang('messages.follow petrol this month')</a>
+        <a style="padding:10px" class="btn btn-secondary"
+            href="{{ route('carPetrolThisMonth', $id) }}">@lang('messages.follow petrol this month')</a>
     @else
         <a class="btn btn-success" href="{{ route('carPetrolThisMonth', $id) }}">@lang('messages.follow petrol this month')</a>
     @endif
 
 
     @if (Route::is('carPetrolLastWeek'))
-        <a style="padding:10px" class="btn btn-secondary" href="{{ route('carPetrolLastWeek', $id) }}">@lang('messages.follow petrol last week')</a>
+        <a style="padding:10px" class="btn btn-secondary"
+            href="{{ route('carPetrolLastWeek', $id) }}">@lang('messages.follow petrol last week')</a>
     @else
         <a class="btn btn-success" href="{{ route('carPetrolLastWeek', $id) }}">@lang('messages.follow petrol last week')</a>
     @endif
 
     @if (Route::is('carPetrolLastMonth'))
-        <a style="padding:10px" class="btn btn-secondary" href="{{ route('carPetrolLastMonth', $id) }}">@lang('messages.follow petrol last month')</a>
+        <a style="padding:10px" class="btn btn-secondary"
+            href="{{ route('carPetrolLastMonth', $id) }}">@lang('messages.follow petrol last month')</a>
     @else
         <a class="btn btn-success" href="{{ route('carPetrolLastMonth', $id) }}">@lang('messages.follow petrol last month')</a>
     @endif
@@ -214,7 +226,8 @@
 
 
 
-    <div class="modal fade" id="addRole" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+    <div class="modal fade" id="addRole" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -271,7 +284,7 @@
             $("#basic-btn2").DataTable({
                 dom: "Bfrtip",
                 buttons: ["copy", "csv", "excel"],
-                ordering:false
+                ordering: false
             });
         </script>
         <script></script>
