@@ -29,7 +29,7 @@
     <!-- Layout styles -->
     <link rel="stylesheet" href="{{ asset('backend/assets/css/modern-vertical/style.css') }}">
     <!-- End layout styles -->
-    <link rel="shortcut icon" href="{{ asset('images/logo3.png') }}" />
+    <link rel="shortcut icon" href="{{ asset('images/waqud.png') }}" />
     {{-- <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap4.min.css" /> --}}
     @yield('style')
 
@@ -47,9 +47,9 @@
     <!-- partial:partials/_sidebar.html -->
     <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-            <a class="sidebar-brand brand-logo" href="index.html"
+            <a class="sidebar-brand brand-logo" href="{{ route('dashboard') }}"
                 style="color: white;text-decoration: none">@lang('messages.Manasa')</a>
-            <a class="sidebar-brand brand-logo-mini" href="index.html"><img src="{{ asset('images/logo3.png') }}"
+            <a class="sidebar-brand brand-logo-mini" href="{{ route('dashboard') }}"><img src="{{ asset('images/waqud.png') }}"
                     alt="logo" /></a>
         </div>
         <ul class="nav" style="height: 1000px">
