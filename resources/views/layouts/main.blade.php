@@ -48,8 +48,9 @@
     <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
             <a class="sidebar-brand brand-logo" href="{{ route('dashboard') }}"
-                style="color: white;text-decoration: none">@lang('messages.Manasa')</a>
-            <a class="sidebar-brand brand-logo-mini" href="{{ route('dashboard') }}"><img src="{{ asset('images/waqud.png') }}"
+                style="color: white;text-decoration: none">@lang('messages.Manasa') <img style="height: 40px;margin:10px"  src="{{ asset('images/waqud.png') }}"
+                    alt="logo" /></a>
+            <a class="sidebar-brand brand-logo-mini" href="{{ route('dashboard') }}"><img  src="{{ asset('images/waqud.png') }}"
                     alt="logo" /></a>
         </div>
         <ul class="nav" style="height: 1000px">
@@ -250,7 +251,7 @@
         <nav class="navbar p-0 fixed-top d-flex flex-row">
             <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
                 <a class="navbar-brand brand-logo-mini" href="index.html"><img
-                        src="{{ asset('images/logo.png') }}" style="width: 200px;height:50px"
+                        src="{{ asset('images/waqud.png') }}" style="width: 200px;height:50px"
                         alt="logo" /></a>
             </div>
             <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
