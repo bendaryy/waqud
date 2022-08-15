@@ -130,6 +130,12 @@
         </div> --}}
 
     </div>
+    @if (Route::is('carpetrol'))
+        <a style="padding:10px" class="btn btn-secondary"
+            href="{{ route('carpetrol', $id) }}">@lang('messages.follow petrol all time')</a>
+    @else
+        <a class="btn btn-success" href="{{ route('carpetrol', $id) }}">@lang('messages.follow petrol all time')</a>
+    @endif
     @if (Route::is('carPetrolThisWeek'))
         <a style="padding:10px" class="btn btn-secondary"
             href="{{ route('carPetrolThisWeek', $id) }}">@lang('messages.follow petrol this week')</a>
