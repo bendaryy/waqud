@@ -97,4 +97,6 @@ return [
     'follow petrol last week' => 'follow petrol last week',
     'follow petrol this month' => 'follow petrol this month',
     'follow petrol last month' => 'follow petrol last month',
+    'ekramyat'=>'tips',
+    "all_costs"=>'all costs'
 ];

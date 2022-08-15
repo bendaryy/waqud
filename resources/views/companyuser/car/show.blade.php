@@ -178,10 +178,12 @@
                                     <th id="thead">@lang('messages.date')</th>
                                     <th id="thead">@lang('messages.liter')</th>
                                     <th id="thead">@lang('messages.price')</th>
+                                    <th id="thead">@lang('messages.ekramyat')</th>
+                                    <th id="thead">@lang('messages.all_costs')</th>
                                     <th id="thead">@lang('messages.kilometres')</th>
-                                    <th id="thead">@lang('messages.Consumption rate per plate')</th>
+                                    {{-- <th id="thead">@lang('messages.Consumption rate per plate')</th>
                                     <th id="thead">@lang('messages.Consumption rate per 100 kilo')</th>
-                                    <th id="thead">@lang('messages.kilos per liter')</th>
+                                    <th id="thead">@lang('messages.kilos per liter')</th> --}}
                                 </tr>
                             </thead>
                             <tbody>
@@ -190,16 +192,18 @@
                                         <td> {{ Carbon\Carbon::parse($petrol->created_at)->format('d-m-Y') }}</td>
                                         <td>{{ $petrol->litre }}</td>
                                         <td>{{ $petrol->pound }}</td>
-                                        @if ($petrol->kiloNumbers == null)
+                                        <td>{{ $petrol->ekramyat }}</td>
+                                        <td>{{ $petrol->all_costs }}</td>
+                                        {{-- @if ($petrol->kiloNumbers == null)
                                             <td> <a class="btn btn-success" style="padding:10px"
                                                     href="{{ route('kilopetrol', $petrol->id) }}">@lang('messages.add kilometres')</a>
                                             </td>
-                                        @else
-                                            <td>{{ $petrol->kiloNumbers }}</td>
-                                        @endif
-                                        <td>{{ $petrol->safy7aNumbers }}</td>
+                                        @else --}}
+                                            <td>{{ $petrol->all_kilometers }}</td>
+                                        {{-- @endif --}}
+                                        {{-- <td>{{ $petrol->safy7aNumbers }}</td>
                                         <td>{{ $petrol->hundredNumbers }}</td>
-                                        <td>{{ $petrol->kilosperliter }}</td>
+                                        <td>{{ $petrol->kilosperliter }}</td> --}}
                                     </tr>
                                 @endforeach
                             </tbody>
