@@ -50,7 +50,7 @@
 
             <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
                 aria-expanded="false" aria-controls="collapseExample">
-               @lang('messages.show car details')
+                @lang('messages.show car details')
             </button>
         </p>
 
@@ -131,8 +131,7 @@
 
     </div>
     @if (Route::is('carpetrol'))
-        <a style="padding:10px" class="btn btn-secondary"
-            href="{{ route('carpetrol', $id) }}">@lang('messages.follow petrol all time')</a>
+        <a style="padding:10px" class="btn btn-secondary" href="{{ route('carpetrol', $id) }}">@lang('messages.follow petrol all time')</a>
     @else
         <a class="btn btn-success" href="{{ route('carpetrol', $id) }}">@lang('messages.follow petrol all time')</a>
     @endif
@@ -181,6 +180,7 @@
                         <table id="basic-btn2" class="table table-bordered nowrap" style="color:white;text-align: center">
                             <thead>
                                 <tr>
+                                    <th id="thead">اسم المحطة</th>
                                     <th id="thead">@lang('messages.date')</th>
                                     <th id="thead">@lang('messages.liter')</th>
                                     <th id="thead">@lang('messages.price')</th>
@@ -195,6 +195,11 @@
                             <tbody>
                                 @foreach ($petrols as $petrol)
                                     <tr>
+                                        @if ($petrol->user_id == null)
+                                            <td></td>
+                                        @else
+                                            <td>{{ $petrol->user['name'] }}</td>
+                                        @endif
                                         <td> {{ Carbon\Carbon::parse($petrol->created_at)->format('d-m-Y') }}</td>
                                         <td>{{ $petrol->litre }}</td>
                                         <td>{{ $petrol->pound }}</td>
@@ -205,7 +210,7 @@
                                                     href="{{ route('kilopetrol', $petrol->id) }}">@lang('messages.add kilometres')</a>
                                             </td>
                                         @else --}}
-                                            <td>{{ $petrol->all_kilometers }}</td>
+                                        <td>{{ $petrol->all_kilometers }}</td>
                                         {{-- @endif --}}
                                         {{-- <td>{{ $petrol->safy7aNumbers }}</td>
                                         <td>{{ $petrol->hundredNumbers }}</td>

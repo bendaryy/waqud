@@ -17,4 +17,7 @@ class Petrol extends Model
     public function car(){
         return $this->belongsTo(subCar::class,'carId','id');
     }
+    public function user(){
+        return $this->belongsTo(User::class,'user_id','id');
+    }
 }
