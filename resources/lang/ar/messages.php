@@ -99,5 +99,6 @@ return [
      'follow petrol last month' => 'متابعة البنزين الشهر الماضى',
      'follow petrol all time' => 'متابعة البنزين الإجمالى',
      'ekramyat'=>'إكراميات',
-     "all_costs"=>'إجمالى المدفوع'
+     "all_costs"=>'إجمالى المدفوع',
+     "station name"=>'إسم المحطة',
 ];

@@ -180,8 +180,8 @@
                         <table id="basic-btn2" class="table table-bordered nowrap" style="color:white;text-align: center">
                             <thead>
                                 <tr>
-                                    <th id="thead">اسم المحطة</th>
                                     <th id="thead">@lang('messages.date')</th>
+                                    <th id="thead">@lang('messages.station name')</th>
                                     <th id="thead">@lang('messages.liter')</th>
                                     <th id="thead">@lang('messages.price')</th>
                                     <th id="thead">@lang('messages.ekramyat')</th>
@@ -194,13 +194,13 @@
                             </thead>
                             <tbody>
                                 @foreach ($petrols as $petrol)
-                                    <tr>
+                                <tr>
+                                        <td> {{ Carbon\Carbon::parse($petrol->created_at)->format('d-m-Y') }}</td>
                                         @if ($petrol->user_id == null)
                                             <td></td>
                                         @else
                                             <td>{{ $petrol->user['name'] }}</td>
                                         @endif
-                                        <td> {{ Carbon\Carbon::parse($petrol->created_at)->format('d-m-Y') }}</td>
                                         <td>{{ $petrol->litre }}</td>
                                         <td>{{ $petrol->pound }}</td>
                                         <td>{{ $petrol->ekramyat }}</td>
