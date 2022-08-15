@@ -86,7 +86,7 @@ return [
     "show station companies" => "عرض الشركات الخاصة بالمحطة",
     "show all petrol status" => "عرض جميع عمليات البنزين لهذه الشركة",
     'show' => 'عرض',
-    'kilometres' => 'عدد الكيلومترات',
+    'kilometres' => 'عداد الكيلومترات',
     "Consumption rate per plate" => 'معدل الإستهلاك للصفيحة الواحدة (20 لتر)',
     "Consumption rate per 100 kilo" => 'معدل الإستهلاك لكل (100 كيلومتر)',
     'add kilometres' => 'إضافة الكيلومترات',
