@@ -99,7 +99,9 @@ return [
     'follow petrol last month' => 'follow petrol last month',
     'follow petrol all time' => 'follow petrol all time',
     'follow petrol all time' => 'follow petrol all time',
-    'ekramyat'=>'tips',
-    "all_costs"=>'all costs',
-    "station name"=>'station name',
+    'ekramyat' => 'tips',
+    "all_costs" => 'all costs',
+    "station name" => 'station name',
+    "dateFrom" => 'search date from',
+    "dateTo" => 'to',
 ];

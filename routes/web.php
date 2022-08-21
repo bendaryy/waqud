@@ -99,6 +99,9 @@ Route::group(
             Route::get('carpetrolLastWeek/{id}', [myCompaniesController::class, 'carPetrolLastWeek'])->name('carPetrolLastWeek');
             Route::get('companypetrol/{id}', [myCompaniesController::class, 'companyPetrol'])->name('companypetrol');
             Route::get('kilopetrol/{id}', [myCompaniesController::class, 'editKilo'])->name('kilopetrol');
+
+            // from date to date
+            Route::get('fromdatetodate/{id}', [myCompaniesController::class, 'fromDateToDate'])->name('searchbydate');
         });
         //end companyUser section
 

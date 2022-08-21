@@ -101,4 +101,6 @@ return [
      'ekramyat'=>'إكراميات',
      "all_costs"=>'إجمالى المدفوع',
      "station name"=>'إسم المحطة',
+     "dateFrom"=>'تاريخ البحث من',
+     "dateTo"=>'إلى',
 ];

@@ -45,7 +45,7 @@ class myCompaniesController extends Controller
 
     public function carPetrol($id)
     {
-        $petrols = Petrol::where('carId', $id)->orderBy('created_at','desc')->get();
+        $petrols = Petrol::where('carId', $id)->orderBy('created_at', 'desc')->get();
         // $petrols = Petrol::where('carId', $id)->whereMonth(
         //     'created_at', '=', Carbon::now()->subMonth()->month
         // )->get();
@@ -66,7 +66,7 @@ class myCompaniesController extends Controller
     public function carPetrolLastWeek($id)
     {
         $currentDate = Carbon::now();
-        $petrols = Petrol::where('carId', $id)->where('created_at', '>=',Carbon::now()->subdays(15))->get();
+        $petrols = Petrol::where('carId', $id)->where('created_at', '>=', Carbon::now()->subdays(15))->get();
         // $petrols = Petrol::where('carId', $id)->whereMonth(
         //     'created_at', '=', Carbon::now()->subMonth()->month
         // )->get();
@@ -119,6 +119,16 @@ class myCompaniesController extends Controller
         $petrol->update();
         return redirect()->route('carpetrol', $petrol->car->id)->with('success', __("messages.editSuccess"));
 
+    }
+
+    public function fromDateToDate($id, Request $request)
+    {
+        $from = date($request->dateFrom);
+        $to = date($request->dateTo);
+        $petrols = Petrol::where('carId', $id)->orderBy('created_at', 'desc')->whereBetween('created_at', [$from, $to])->get();
+
+        $car = subCar::find($id);
+        return view('companyuser.car.show', compact('petrols', 'id', 'car','from','to'));
     }
 
 }

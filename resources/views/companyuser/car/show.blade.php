@@ -46,12 +46,61 @@
 @endsection
 @section('content')
     <div class="container">
+        <div class="row" style="text-align: center;margin: 50px">
+            @if (Route::is('searchbydate'))
+                <div class="col-12" style="margin-bottom: 50px">
+               <h3>     @lang('messages.dateFrom') {{ $from }}   @lang('messages.dateTo') {{ $to }}</h3>
+                </div>
+            @else
+                <div class="col-6">
+                    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#showDate"
+                        aria-expanded="false" aria-controls="showDate">
+                        بحث من تاريخ الى تاريخ
+                </div>
+            @endif
+
+            @if (Route::is('searchbydate'))
+            <div class="col-12">
+                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
+                    aria-expanded="false" aria-controls="collapseExample">
+                    @lang('messages.show car details')
+                </button>
+            </div>
+            @else
+            <div class="col-6">
+                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
+                    aria-expanded="false" aria-controls="collapseExample">
+                    @lang('messages.show car details')
+                </button>
+            </div>
+            @endif
+
+
+        </div>
+
+        <form action="{{ route('searchbydate', $car->id) }}">
+            <div class="row collapse" style="margin:50px" id="showDate">
+
+                </button>
+                <div class="col-5">
+                    <label for="from" style="text-align: center;margin: auto">من تاريخ</label>
+                    <input type="date" class="form-control" name="dateFrom">
+                </div>
+
+                <div class="col-5">
+                    <label for="from" style="text-align: center;margin: auto">الى تاريخ</label>
+                    <input type="date" class="form-control" name="dateTo">
+                </div>
+                <div class="col-2">
+                    <button style="margin-top: 27px" class="btn btn-success" type="submit">بحث</button>
+                </div>
+
+            </div>
+        </form>
+
         <p>
 
-            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
-                aria-expanded="false" aria-controls="collapseExample">
-                @lang('messages.show car details')
-            </button>
+
         </p>
 
         <div class="row collapse" style="" id="collapseExample">
@@ -177,7 +226,8 @@
                 </div>
                 <div class="card-block">
                     <div class="dt-responsive table-responsive">
-                        <table id="basic-btn2" class="table table-bordered nowrap" style="color:white;text-align: center">
+                        <table id="basic-btn2" class="table table-bordered nowrap"
+                            style="color:white;text-align: center">
                             <thead>
                                 <tr>
                                     <th id="thead">@lang('messages.date')</th>
@@ -194,7 +244,7 @@
                             </thead>
                             <tbody>
                                 @foreach ($petrols as $petrol)
-                                <tr>
+                                    <tr>
                                         <td> {{ Carbon\Carbon::parse($petrol->created_at)->format('d-m-Y') }}</td>
                                         @if ($petrol->user_id == null)
                                             <td></td>
