@@ -45,6 +45,32 @@
     </style>
 @endsection
 @section('content')
+
+<div class="container">
+    <div class="row" style="margin: auto">
+        <div class="card col-3 text-center" style="width: 23rem;margin:3px">
+          <div class="card-body">
+            <h3> @lang('messages.allLitres')</h3> <br>
+            {{ $sumPetrol }}
+
+          </div>
+        </div>
+        <div class="card col-3 text-center" style="width: 23rem;margin:3px">
+          <div class="card-body">
+            <h3> @lang('messages.all_costs')</h3> <br>
+            {{ $sumPaid }}
+
+          </div>
+        </div>
+        <div class="card col-3 text-center" style="width: 23rem;margin:3px">
+          <div class="card-body">
+            <h3> @lang('messages.allKilometers')</h3> <br>
+            {{ $sumAllKilo }}
+
+          </div>
+        </div>
+    </div>
+</div>
     <div class="container">
         <div class="row" style="text-align: center;margin: 50px">
             @if (Route::is('searchbydate'))

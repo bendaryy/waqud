@@ -104,4 +104,7 @@ return [
     "station name" => 'station name',
     "dateFrom" => 'search date from',
     "dateTo" => 'to',
+    "allLitres" => 'all Litres',
+    "allPaid" => 'all paid',
+    "allKilometers" => 'all kilometers',
 ];

@@ -46,52 +46,53 @@ class myCompaniesController extends Controller
     public function carPetrol($id)
     {
         $petrols = Petrol::where('carId', $id)->orderBy('created_at', 'desc')->get();
-        // $petrols = Petrol::where('carId', $id)->whereMonth(
-        //     'created_at', '=', Carbon::now()->subMonth()->month
-        // )->get();
+        $sumPetrol = Petrol::where('carId', $id)->sum('litre');
+        $sumPaid = Petrol::where('carId', $id)->sum('all_costs');
+        $sumAllKilo = Petrol::where('carId', $id)->sum('all_kilometers');
 
         $car = subCar::find($id);
-        return view('companyuser.car.show', compact('petrols', 'id', 'car'));
+        return view('companyuser.car.show', compact('petrols', 'id', 'car', 'sumPetrol', 'sumPaid', 'sumAllKilo'));
     }
     public function carPetrolThisWeek($id)
     {
         $petrols = Petrol::where('carId', $id)->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->get();
-        // $petrols = Petrol::where('carId', $id)->whereMonth(
-        //     'created_at', '=', Carbon::now()->subMonth()->month
-        // )->get();
-
+        $sumPetrol = Petrol::where('carId', $id)->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->sum('litre');
+        $sumPaid = Petrol::where('carId', $id)->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->sum('all_costs');
+        $sumAllKilo = Petrol::where('carId', $id)->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->sum('all_kilometers');
         $car = subCar::find($id);
-        return view('companyuser.car.show', compact('petrols', 'id', 'car'));
+        return view('companyuser.car.show', compact('petrols', 'id', 'car', 'sumPetrol', 'sumPaid', 'sumAllKilo'));
     }
     public function carPetrolLastWeek($id)
     {
         $currentDate = Carbon::now();
         $petrols = Petrol::where('carId', $id)->where('created_at', '>=', Carbon::now()->subdays(15))->get();
-        // $petrols = Petrol::where('carId', $id)->whereMonth(
-        //     'created_at', '=', Carbon::now()->subMonth()->month
-        // )->get();
+        $sumPetrol = Petrol::where('carId', $id)->where('created_at', '>=', Carbon::now()->subdays(15))->sum('litre');
+        $sumPaid = Petrol::where('carId', $id)->where('created_at', '>=', Carbon::now()->subdays(15))->sum('all_costs');
+        $sumAllKilo = Petrol::where('carId', $id)->where('created_at', '>=', Carbon::now()->subdays(15))->sum('all_kilometers');
 
         $car = subCar::find($id);
-        return view('companyuser.car.show', compact('petrols', 'id', 'car'));
+        return view('companyuser.car.show', compact('petrols', 'id', 'car', 'sumPetrol', 'sumPaid', 'sumAllKilo'));
     }
     public function carPetrolThisMonth($id)
     {
         $petrols = Petrol::where('carId', $id)->whereBetween('created_at', [Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()])->get();
-        // $petrols = Petrol::where('carId', $id)->whereMonth(
-        //     'created_at', '=', Carbon::now()->subMonth()->month
-        // )->get();
+         $sumPetrol = Petrol::where('carId', $id)->whereBetween('created_at', [Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()])->sum('litre');
+        $sumPaid = Petrol::where('carId', $id)->whereBetween('created_at', [Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()])->sum('all_costs');
+        $sumAllKilo = Petrol::where('carId', $id)->whereBetween('created_at', [Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()])->sum('all_kilometers');
 
         $car = subCar::find($id);
-        return view('companyuser.car.show', compact('petrols', 'id', 'car'));
+        return view('companyuser.car.show', compact('petrols', 'id', 'car', 'sumPetrol', 'sumPaid', 'sumAllKilo'));
     }
     public function carPetrolLastMonth($id)
     {
-        $petrols = Petrol::where('carId', $id)->whereMonth(
-            'created_at', '=', Carbon::now()->subMonth()->month
-        )->get();
+        $petrols = Petrol::where('carId', $id)->whereMonth('created_at', '=', Carbon::now()->subMonth()->month)->get();
+
+           $sumPetrol = Petrol::where('carId', $id)->whereMonth('created_at', '=', Carbon::now()->subMonth()->month)->sum('litre');
+        $sumPaid = Petrol::where('carId', $id)->whereMonth('created_at', '=', Carbon::now()->subMonth()->month)->sum('all_costs');
+        $sumAllKilo = Petrol::where('carId', $id)->whereMonth('created_at', '=', Carbon::now()->subMonth()->month)->sum('all_kilometers');
 
         $car = subCar::find($id);
-        return view('companyuser.car.show', compact('petrols', 'id', 'car'));
+        return view('companyuser.car.show', compact('petrols', 'id', 'car', 'sumPetrol', 'sumPaid', 'sumAllKilo'));
     }
 
     public function companyPetrol($id)
@@ -128,7 +129,7 @@ class myCompaniesController extends Controller
         $petrols = Petrol::where('carId', $id)->orderBy('created_at', 'desc')->whereBetween('created_at', [$from, $to])->get();
 
         $car = subCar::find($id);
-        return view('companyuser.car.show', compact('petrols', 'id', 'car','from','to'));
+        return view('companyuser.car.show', compact('petrols', 'id', 'car', 'from', 'to'));
     }
 
 }
