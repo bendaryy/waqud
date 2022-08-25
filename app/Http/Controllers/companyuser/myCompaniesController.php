@@ -128,8 +128,13 @@ class myCompaniesController extends Controller
         $to = date($request->dateTo);
         $petrols = Petrol::where('carId', $id)->orderBy('created_at', 'desc')->whereBetween('created_at', [$from, $to])->get();
 
+        $sumPetrol = Petrol::where('carId', $id)->whereBetween('created_at', [$from, $to])->sum('litre');
+$sumPaid = Petrol::where('carId', $id)->whereBetween('created_at', [$from, $to])->sum('all_costs');
+$sumAllKilo = Petrol::where('carId', $id)->whereBetween('created_at', [$from, $to])->sum('all_kilometers');
+
+
         $car = subCar::find($id);
-        return view('companyuser.car.show', compact('petrols', 'id', 'car', 'from', 'to'));
+        return view('companyuser.car.show', compact('petrols', 'id', 'car', 'from', 'to', 'sumPetrol', 'sumPaid', 'sumAllKilo'));
     }
 
 }
