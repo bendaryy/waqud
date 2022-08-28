@@ -26,10 +26,16 @@ class petrolController extends Controller
         $petrol->all_costs = $request->all_costs;
         $petrol->user_id = $request->user_id;
         $petrol->all_kilometers = $request->all_kilometers;
+        if($request->picture){
+            $file_name = time().'.'.$request->picture->extension();
+            $request->picture->storeAs('public/petrol',$file_name);
+            $path = "storage/petrol/$file_name";
+            $petrol->picture = $path;
+        }
 
         if ($request->companyId != 0 && $request->carId != 0) {
             $result = $petrol->save();
-            return (object) ['data' => $request->all(), "msg" => "inserted successfully",
+            return (object) ['data' => $petrol, "msg" => "inserted successfully",
                 "status" => true];
         } else {
             return "يوجد خطأ بالبيانات";
