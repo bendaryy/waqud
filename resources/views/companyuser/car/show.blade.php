@@ -50,21 +50,21 @@
             <div class="card col-3 text-center" style="width: 23rem;margin:3px">
                 <div class="card-body">
                     <h3> @lang('messages.allLitres')</h3> <br>
-                    {{ $sumPetrol }}
+                    {{ number_format($sumPetrol,2) }}
 
                 </div>
             </div>
             <div class="card col-3 text-center" style="width: 23rem;margin:3px">
                 <div class="card-body">
                     <h3> @lang('messages.all_costs')</h3> <br>
-                    {{ $sumPaid }}
+                    {{ number_format($sumPaid,2)}}
 
                 </div>
             </div>
             <div class="card col-3 text-center" style="width: 23rem;margin:3px">
                 <div class="card-body">
                     <h3> @lang('messages.allKilometers')</h3> <br>
-                    {{ $sumAllKilo }}
+                    {{ number_format($sumAllKilo,2) }}
 
                 </div>
             </div>
