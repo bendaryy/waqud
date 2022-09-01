@@ -107,4 +107,5 @@ return [
     "allLitres" => 'all Litres',
     "allPaid" => 'all paid',
     "allKilometers" => 'all kilometers',
+    "consumption rate" => "Consumption rate",
 ];
