@@ -106,4 +106,5 @@ return [
     "allLitres" => 'إجمالى عدد اللترات',
     "allPaid" => 'إجمالى المدفوع',
     "allKilometers" => 'إجمالى عدد الكيلومترات',
+    "consumption rate" =>"معدل الإستهلاك"
 ];

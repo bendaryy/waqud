@@ -45,37 +45,36 @@
     </style>
 @endsection
 @section('content')
+    <div class="container">
+        <div class="row" style="margin: auto">
+            <div class="card col-3 text-center" style="width: 23rem;margin:3px">
+                <div class="card-body">
+                    <h3> @lang('messages.allLitres')</h3> <br>
+                    {{ $sumPetrol }}
 
-<div class="container">
-    <div class="row" style="margin: auto">
-        <div class="card col-3 text-center" style="width: 23rem;margin:3px">
-          <div class="card-body">
-            <h3> @lang('messages.allLitres')</h3> <br>
-            {{ $sumPetrol }}
+                </div>
+            </div>
+            <div class="card col-3 text-center" style="width: 23rem;margin:3px">
+                <div class="card-body">
+                    <h3> @lang('messages.all_costs')</h3> <br>
+                    {{ $sumPaid }}
 
-          </div>
-        </div>
-        <div class="card col-3 text-center" style="width: 23rem;margin:3px">
-          <div class="card-body">
-            <h3> @lang('messages.all_costs')</h3> <br>
-            {{ $sumPaid }}
+                </div>
+            </div>
+            <div class="card col-3 text-center" style="width: 23rem;margin:3px">
+                <div class="card-body">
+                    <h3> @lang('messages.allKilometers')</h3> <br>
+                    {{ $sumAllKilo }}
 
-          </div>
-        </div>
-        <div class="card col-3 text-center" style="width: 23rem;margin:3px">
-          <div class="card-body">
-            <h3> @lang('messages.allKilometers')</h3> <br>
-            {{ $sumAllKilo }}
-
-          </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
     <div class="container">
         <div class="row" style="text-align: center;margin: 50px">
             @if (Route::is('searchbydate'))
                 <div class="col-12" style="margin-bottom: 50px">
-               <h3>     @lang('messages.dateFrom') {{ $from }}   @lang('messages.dateTo') {{ $to }}</h3>
+                    <h3> @lang('messages.dateFrom') {{ $from }} @lang('messages.dateTo') {{ $to }}</h3>
                 </div>
             @else
                 <div class="col-6">
@@ -86,19 +85,19 @@
             @endif
 
             @if (Route::is('searchbydate'))
-            <div class="col-12">
-                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
-                    aria-expanded="false" aria-controls="collapseExample">
-                    @lang('messages.show car details')
-                </button>
-            </div>
+                <div class="col-12">
+                    <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                        @lang('messages.show car details')
+                    </button>
+                </div>
             @else
-            <div class="col-6">
-                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
-                    aria-expanded="false" aria-controls="collapseExample">
-                    @lang('messages.show car details')
-                </button>
-            </div>
+                <div class="col-6">
+                    <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                        @lang('messages.show car details')
+                    </button>
+                </div>
             @endif
 
 
@@ -263,13 +262,14 @@
                                     <th id="thead">@lang('messages.ekramyat')</th>
                                     <th id="thead">@lang('messages.all_costs')</th>
                                     <th id="thead">@lang('messages.kilometres')</th>
+                                    <th id="thead">@lang('messages.consumption rate')</th>
                                     {{-- <th id="thead">@lang('messages.Consumption rate per plate')</th>
                                     <th id="thead">@lang('messages.Consumption rate per 100 kilo')</th>
                                     <th id="thead">@lang('messages.kilos per liter')</th> --}}
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($petrols as $petrol)
+                                @foreach ($petrols as $index => $petrol)
                                     <tr>
                                         <td> {{ Carbon\Carbon::parse($petrol->created_at)->format('d-m-Y') }}</td>
                                         @if ($petrol->user_id == null)
@@ -280,6 +280,7 @@
                                         <td>{{ $petrol->litre }}</td>
                                         <td>{{ $petrol->pound }}</td>
                                         <td>{{ $petrol->ekramyat }}</td>
+
                                         <td>{{ $petrol->all_costs }}</td>
                                         {{-- @if ($petrol->kiloNumbers == null)
                                             <td> <a class="btn btn-success" style="padding:10px"
@@ -291,6 +292,8 @@
                                         {{-- <td>{{ $petrol->safy7aNumbers }}</td>
                                         <td>{{ $petrol->hundredNumbers }}</td>
                                         <td>{{ $petrol->kilosperliter }}</td> --}}
+
+                                        <td>{{ isset( $petrols[$index - 1]) ? number_format(($petrols[$index - 1]['all_kilometers'] - $petrol->all_kilometers) / $petrol->litre,2): "" }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
