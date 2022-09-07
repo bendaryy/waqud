@@ -64,7 +64,7 @@
             <div class="card col-3 text-center" style="width: 23rem;margin:3px">
                 <div class="card-body">
                     <h3> @lang('messages.allKilometers')</h3> <br>
-                    {{ number_format($sumAllKilo,2) }}
+                    {{ $sumAllKilo}}
 
                 </div>
             </div>
