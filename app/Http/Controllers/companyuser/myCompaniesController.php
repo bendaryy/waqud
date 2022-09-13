@@ -48,7 +48,7 @@ class myCompaniesController extends Controller
         $petrols = Petrol::where('carId', $id)->orderBy('created_at', 'desc')->get();
         $sumPetrol = Petrol::where('carId', $id)->sum('litre');
         $sumPaid = Petrol::where('carId', $id)->sum('all_costs');
-        $firstallKilo = Petrol::where('carId', $id)->orderBy('created_at', 'asc')->first()['all_kilometers'];
+        // $firstallKilo = Petrol::where('carId', $id)->orderBy('created_at', 'asc')->first()['all_kilometers'];
 
         if (isset(Petrol::where('carId', $id)->orderBy('created_at', 'desc')->first()['all_kilometers'])) {
             $LastallKilo = Petrol::where('carId', $id)->orderBy('created_at', 'desc')->first()['all_kilometers'];
@@ -94,8 +94,8 @@ class myCompaniesController extends Controller
         $sumPetrol = Petrol::where('carId', $id)->orderBy('created_at', 'desc')->where('created_at', '>=', Carbon::now()->subdays(15))->sum('litre');
         $sumPaid = Petrol::where('carId', $id)->where('created_at', '>=', Carbon::now()->subdays(15))->sum('all_costs');
         // $sumAllKilo = Petrol::where('carId', $id)->where('created_at', '>=', Carbon::now()->subdays(15))->sum('all_kilometers');
-        $LastallKilo = Petrol::where('carId', $id)->orderBy('created_at', 'desc')->where('created_at', '>=', Carbon::now()->subdays(15))->first()['all_kilometers'];
-        $firstallKilo = Petrol::where('carId', $id)->orderBy('created_at', 'asc')->where('created_at', '>=', Carbon::now()->subdays(15))->first()['all_kilometers'];
+        // $LastallKilo = Petrol::where('carId', $id)->orderBy('created_at', 'desc')->where('created_at', '>=', Carbon::now()->subdays(15))->first()['all_kilometers'];
+        // $firstallKilo = Petrol::where('carId', $id)->orderBy('created_at', 'asc')->where('created_at', '>=', Carbon::now()->subdays(15))->first()['all_kilometers'];
 
         if (isset(Petrol::where('carId', $id)->orderBy('created_at', 'desc')->where('created_at', '>=', Carbon::now()->subdays(15))->first()['all_kilometers'])) {
             $LastallKilo = Petrol::where('carId', $id)->orderBy('created_at', 'desc')->where('created_at', '>=', Carbon::now()->subdays(15))->first()['all_kilometers'];

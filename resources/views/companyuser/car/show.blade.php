@@ -50,21 +50,21 @@
             <div class="card col-3 text-center" style="width: 23rem;margin:3px">
                 <div class="card-body">
                     <h3> @lang('messages.allLitres')</h3> <br>
-                    {{ number_format($sumPetrol,2) }}
+                    {{ number_format($sumPetrol, 2) }}
 
                 </div>
             </div>
             <div class="card col-3 text-center" style="width: 23rem;margin:3px">
                 <div class="card-body">
                     <h3> @lang('messages.all_costs')</h3> <br>
-                    {{ number_format($sumPaid,2)}}
+                    {{ number_format($sumPaid, 2) }}
 
                 </div>
             </div>
             <div class="card col-3 text-center" style="width: 23rem;margin:3px">
                 <div class="card-body">
                     <h3> @lang('messages.allKilometers')</h3> <br>
-                    {{ $sumAllKilo}}
+                    {{ $sumAllKilo }}
 
                 </div>
             </div>
@@ -259,13 +259,11 @@
                                     <th id="thead">@lang('messages.station name')</th>
                                     <th id="thead">@lang('messages.liter')</th>
                                     <th id="thead">@lang('messages.price')</th>
+                                    <th id="thead">@lang('messages.picture')</th>
                                     <th id="thead">@lang('messages.ekramyat')</th>
                                     <th id="thead">@lang('messages.all_costs')</th>
                                     <th id="thead">@lang('messages.kilometres')</th>
                                     <th id="thead">@lang('messages.consumption rate')</th>
-                                    {{-- <th id="thead">@lang('messages.Consumption rate per plate')</th>
-                                    <th id="thead">@lang('messages.Consumption rate per 100 kilo')</th>
-                                    <th id="thead">@lang('messages.kilos per liter')</th> --}}
                                 </tr>
                             </thead>
                             <tbody>
@@ -279,21 +277,14 @@
                                         @endif
                                         <td>{{ $petrol->litre }}</td>
                                         <td>{{ $petrol->pound }}</td>
+                                        <td><a href="{{ URL::to($petrol->picture) }}"> <img
+                                                    src="{{ URL::to($petrol->picture) }}"
+                                                    alt="صورة العداد غير موجودة"></a></td>
                                         <td>{{ $petrol->ekramyat }}</td>
-
                                         <td>{{ $petrol->all_costs }}</td>
-                                        {{-- @if ($petrol->kiloNumbers == null)
-                                            <td> <a class="btn btn-success" style="padding:10px"
-                                                    href="{{ route('kilopetrol', $petrol->id) }}">@lang('messages.add kilometres')</a>
-                                            </td>
-                                        @else --}}
                                         <td>{{ $petrol->all_kilometers }}</td>
-                                        {{-- @endif --}}
-                                        {{-- <td>{{ $petrol->safy7aNumbers }}</td>
-                                        <td>{{ $petrol->hundredNumbers }}</td>
-                                        <td>{{ $petrol->kilosperliter }}</td> --}}
-
-                                        <td>{{ isset( $petrols[$index - 1]) ? number_format(($petrols[$index - 1]['all_kilometers'] - $petrol->all_kilometers) / $petrol->litre,2): "" }}</td>
+                                        <td>{{ isset($petrols[$index - 1]) ? number_format(($petrols[$index - 1]['all_kilometers'] - $petrol->all_kilometers) / $petrol->litre, 2) : '' }}
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
