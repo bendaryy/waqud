@@ -108,5 +108,6 @@ return [
     "allPaid" => 'all paid',
     "allKilometers" => 'all kilometers',
     "consumption rate" => "Consumption rate",
-    "picture"=>"counter picture"
+    "picture"=>"counter picture",
+    "date from to"=>"search from date to another one"
 ];

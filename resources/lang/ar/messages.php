@@ -108,4 +108,5 @@ return [
     "allKilometers" => 'إجمالى عدد الكيلومترات',
     "consumption rate" => "معدل الإستهلاك",
     "picture" => "صورة العداد",
+    "date from to"=>"بحث من تاريخ الى تاريخ"
 ];

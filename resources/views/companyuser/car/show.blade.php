@@ -80,7 +80,7 @@
                 <div class="col-6">
                     <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#showDate"
                         aria-expanded="false" aria-controls="showDate">
-                        بحث من تاريخ الى تاريخ
+                       @lang('messages.date from to')
                 </div>
             @endif
 
@@ -277,13 +277,13 @@
                                         @endif
                                         <td>{{ $petrol->litre }}</td>
                                         <td>{{ $petrol->pound }}</td>
-                                        <td><a href="{{ URL::to($petrol->picture) }}"> <img
+                                        <td><a target="_blank" href="{{ URL::to($petrol->picture) }}"> <img
                                                     src="{{ URL::to($petrol->picture) }}"
                                                     alt="صورة العداد غير موجودة"></a></td>
                                         <td>{{ $petrol->ekramyat }}</td>
                                         <td>{{ $petrol->all_costs }}</td>
                                         <td>{{ $petrol->all_kilometers }}</td>
-                                        <td>{{ isset($petrols[$index - 1]) ? number_format(($petrols[$index - 1]['all_kilometers'] - $petrol->all_kilometers) / $petrol->litre, 2) : '' }}
+                                        <td>{{ isset($petrols[$index - 1]) ? number_format(($petrols[$index - 1]['all_kilometers'] - $petrol->all_kilometers) / $petrols[$index - 1]['litre'], 2) : '' }}
                                         </td>
                                     </tr>
                                 @endforeach
