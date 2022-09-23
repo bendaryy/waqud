@@ -80,7 +80,7 @@
                 <div class="col-6">
                     <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#showDate"
                         aria-expanded="false" aria-controls="showDate">
-                       @lang('messages.date from to')
+                        @lang('messages.date from to')
                 </div>
             @endif
 
@@ -277,9 +277,14 @@
                                         @endif
                                         <td>{{ $petrol->litre }}</td>
                                         <td>{{ $petrol->pound }}</td>
-                                        <td><a target="_blank" href="{{ URL::to($petrol->picture) }}"> <img
-                                                    src="{{ URL::to($petrol->picture) }}"
-                                                    alt="صورة العداد غير موجودة"></a></td>
+                                        @if ($petrol->picture != null)
+                                            <td><a target="_blank" href="{{ URL::to($petrol->picture) }}"> <img
+                                                        src="{{ URL::to($petrol->picture) }}"
+                                                        alt="صورة العداد غير موجودة"></a></td>
+                                        @else
+                                        <td>صورة العداد غير موجودة</td>
+                                        @endif
+
                                         <td>{{ $petrol->ekramyat }}</td>
                                         <td>{{ $petrol->all_costs }}</td>
                                         <td>{{ $petrol->all_kilometers }}</td>
