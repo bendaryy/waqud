@@ -231,8 +231,7 @@ class myCompaniesController extends Controller
         $petrols = Petrol::where('carId', $id)->orderBy('created_at', 'desc')->whereMonth('created_at', '=', Carbon::now()->subMonth()->month)->get();
         $petrols2 = Petrol::where('carId', $id)->orderBy('created_at', 'desc')->whereMonth('created_at', '=', Carbon::now()->subMonth()->month)->paginate(10);
 
-
-         $chart = new Chart;
+        $chart = new Chart;
 
         if (($petrols->count() >= 1)) {
             foreach ($petrols2 as $petrol) {
@@ -265,7 +264,7 @@ class myCompaniesController extends Controller
         $sumAllKilo = $LastallKilo - $firstallKilo;
 
         $car = subCar::find($id);
-        return view('companyuser.car.show', compact('petrols', 'id', 'car', 'sumPetrol', 'sumPaid', 'sumAllKilo','chart'));
+        return view('companyuser.car.show', compact('petrols', 'id', 'car', 'sumPetrol', 'sumPaid', 'sumAllKilo', 'chart'));
     }
 
     public function companyPetrol($id)
