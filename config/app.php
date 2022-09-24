@@ -180,6 +180,7 @@ return [
         App\Providers\GoogleDriveServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
         // \Intervention\Image\ImageServiceProvider::class,
+        ConsoleTVs\Charts\ChartsServiceProvider::class,
 
 
     ],

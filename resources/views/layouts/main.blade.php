@@ -48,10 +48,10 @@
     <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
             <a class="sidebar-brand brand-logo" href="{{ route('dashboard') }}"
-                style="color: white;text-decoration: none">@lang('messages.Manasa') <img style="height: 40px;margin:10px"  src="{{ asset('images/waqud.png') }}"
-                    alt="logo" /></a>
-            <a class="sidebar-brand brand-logo-mini" href="{{ route('dashboard') }}"><img  src="{{ asset('images/waqud.png') }}"
-                    alt="logo" /></a>
+                style="color: white;text-decoration: none">@lang('messages.Manasa') <img style="height: 40px;margin:10px"
+                    src="{{ asset('images/waqud.png') }}" alt="logo" /></a>
+            <a class="sidebar-brand brand-logo-mini" href="{{ route('dashboard') }}"><img
+                    src="{{ asset('images/waqud.png') }}" alt="logo" /></a>
         </div>
         <ul class="nav" style="height: 1000px">
             {{-- <li class="nav-item nav-category">
@@ -77,164 +77,162 @@
             {{-- users --}}
 
             @role('super_admin')
-            <li class="nav-item menu-items">
-                <a class="nav-link" data-bs-toggle="collapse" href="#tables" aria-expanded="false"
-                    aria-controls="tables">
-                    <span class="menu-icon">
-                        <i class="fa-solid fa-users"></i>
-                    </span>
-                    <span class="menu-title">@lang('messages.users')</span>
-                    {{-- <i class="menu-arrow"></i> --}}
-                    @if (LaravelLocalization::getCurrentLocale() == 'en')
-                        <i class="fa-solid fa-arrow-down" style="line-height: 1;margin-left: auto;margin-right: 0"></i>
-                    @else
-                        <i class="fa-solid fa-arrow-down" style="margin-left: 0;margin-right: auto;line-height: 1"></i>
-                    @endif
-                </a>
-                <div class="collapse" id="tables">
-                    <ul class="nav flex-column sub-menu">
-                        <li class="nav-item"> <a class="nav-link"
-                                href="{{ route('users.index') }}">@lang('messages.show users')</a></li>
+                <li class="nav-item menu-items">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#tables" aria-expanded="false"
+                        aria-controls="tables">
+                        <span class="menu-icon">
+                            <i class="fa-solid fa-users"></i>
+                        </span>
+                        <span class="menu-title">@lang('messages.users')</span>
+                        {{-- <i class="menu-arrow"></i> --}}
+                        @if (LaravelLocalization::getCurrentLocale() == 'en')
+                            <i class="fa-solid fa-arrow-down" style="line-height: 1;margin-left: auto;margin-right: 0"></i>
+                        @else
+                            <i class="fa-solid fa-arrow-down" style="margin-left: 0;margin-right: auto;line-height: 1"></i>
+                        @endif
+                    </a>
+                    <div class="collapse" id="tables">
+                        <ul class="nav flex-column sub-menu">
+                            <li class="nav-item"> <a class="nav-link"
+                                    href="{{ route('users.index') }}">@lang('messages.show users')</a></li>
 
-                        <li class="nav-item"> <a class="nav-link"
-                                href="{{ route('users.companyuser') }}">@lang('messages.show company users')</a></li>
+                            <li class="nav-item"> <a class="nav-link"
+                                    href="{{ route('users.companyuser') }}">@lang('messages.show company users')</a></li>
 
-                        <li class="nav-item"> <a class="nav-link"
-                                href="{{ route('users.stationuser') }}">@lang('messages.show station users')</a></li>
+                            <li class="nav-item"> <a class="nav-link"
+                                    href="{{ route('users.stationuser') }}">@lang('messages.show station users')</a></li>
 
-                        <li class="nav-item"> <a class="nav-link" href="{{ route('users.create') }}">
-                                @lang('messages.add user')</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="{{ route('users.create') }}">
+                                    @lang('messages.add user')</a></li>
 
-                    </ul>
-                </div>
-            </li>
-
-
-
-            {{-- roles and permissions --}}
-
-            <li class="nav-item menu-items">
-                <a class="nav-link" data-bs-toggle="collapse" href="#rolesAndPermissions" aria-expanded="true"
-                    aria-controls="rolesAndPermissions">
-                    <span class="menu-icon">
-                        <i class="fa-solid fa-user-lock"></i>
-                    </span>
-                    <span class="menu-title">@lang('messages.rolesAndPermissions')</span>
-                    {{-- <i class="menu-arrow"></i> --}}
-                    @if (LaravelLocalization::getCurrentLocale() == 'en')
-                        <i class="fa-solid fa-arrow-down" style="line-height: 1;margin-left: auto;margin-right: 0"></i>
-                    @else
-                        <i class="fa-solid fa-arrow-down" style="margin-left: 0;margin-right: auto;line-height: 1"></i>
-                    @endif
-                </a>
-                <div class="collapse" id="rolesAndPermissions">
-                    <ul class="nav flex-column sub-menu">
-                        <li class="nav-item"> <a class="nav-link"
-                                href="{{ route('roles.index') }}">@lang('messages.showRoles')</a></li>
-                        <li class="nav-item"> <a class="nav-link" href="{{ route('permissions.index') }}">
-                                @lang('messages.showPermissions')</a></li>
-
-                    </ul>
-                </div>
-            </li>
+                        </ul>
+                    </div>
+                </li>
 
 
-            {{-- companies --}}
 
-            <li class="nav-item menu-items">
-                <a class="nav-link" data-bs-toggle="collapse" href="#company" aria-expanded="true"
-                    aria-controls="company">
-                    <span class="menu-icon">
-                        <i class="fa-solid fa-building"></i>
-                    </span>
-                    <span class="menu-title">@lang('messages.companies')</span>
-                    {{-- <i class="menu-arrow"></i> --}}
-                    @if (LaravelLocalization::getCurrentLocale() == 'en')
-                        <i class="fa-solid fa-arrow-down"
-                            style="line-height: 1;margin-left: auto;margin-right: 0"></i>
-                    @else
-                        <i class="fa-solid fa-arrow-down"
-                            style="margin-left: 0;margin-right: auto;line-height: 1"></i>
-                    @endif
-                </a>
-                <div class="collapse" id="company">
-                    <ul class="nav flex-column sub-menu">
-                        <li class="nav-item"> <a class="nav-link"
-                                href="{{ route('company.index') }}">@lang('messages.showCompanies')</a></li>
-                        {{-- <li class="nav-item"> <a class="nav-link"
+                {{-- roles and permissions --}}
+
+                <li class="nav-item menu-items">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#rolesAndPermissions" aria-expanded="true"
+                        aria-controls="rolesAndPermissions">
+                        <span class="menu-icon">
+                            <i class="fa-solid fa-user-lock"></i>
+                        </span>
+                        <span class="menu-title">@lang('messages.rolesAndPermissions')</span>
+                        {{-- <i class="menu-arrow"></i> --}}
+                        @if (LaravelLocalization::getCurrentLocale() == 'en')
+                            <i class="fa-solid fa-arrow-down" style="line-height: 1;margin-left: auto;margin-right: 0"></i>
+                        @else
+                            <i class="fa-solid fa-arrow-down" style="margin-left: 0;margin-right: auto;line-height: 1"></i>
+                        @endif
+                    </a>
+                    <div class="collapse" id="rolesAndPermissions">
+                        <ul class="nav flex-column sub-menu">
+                            <li class="nav-item"> <a class="nav-link"
+                                    href="{{ route('roles.index') }}">@lang('messages.showRoles')</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="{{ route('permissions.index') }}">
+                                    @lang('messages.showPermissions')</a></li>
+
+                        </ul>
+                    </div>
+                </li>
+
+
+                {{-- companies --}}
+
+                <li class="nav-item menu-items">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#company" aria-expanded="true"
+                        aria-controls="company">
+                        <span class="menu-icon">
+                            <i class="fa-solid fa-building"></i>
+                        </span>
+                        <span class="menu-title">@lang('messages.companies')</span>
+                        {{-- <i class="menu-arrow"></i> --}}
+                        @if (LaravelLocalization::getCurrentLocale() == 'en')
+                            <i class="fa-solid fa-arrow-down"
+                                style="line-height: 1;margin-left: auto;margin-right: 0"></i>
+                        @else
+                            <i class="fa-solid fa-arrow-down"
+                                style="margin-left: 0;margin-right: auto;line-height: 1"></i>
+                        @endif
+                    </a>
+                    <div class="collapse" id="company">
+                        <ul class="nav flex-column sub-menu">
+                            <li class="nav-item"> <a class="nav-link"
+                                    href="{{ route('company.index') }}">@lang('messages.showCompanies')</a></li>
+                            {{-- <li class="nav-item"> <a class="nav-link"
                                 href="{{ route('permissions.index') }}">
                                 @lang('messages.showPermissions')</a></li> --}}
 
-                    </ul>
-                </div>
-            </li>
+                        </ul>
+                    </div>
+                </li>
 
 
-            {{-- Main car --}}
+                {{-- Main car --}}
 
-            <li class="nav-item menu-items">
-                <a class="nav-link" data-bs-toggle="collapse" href="#mainCar" aria-expanded="true"
-                    aria-controls="mainCar">
-                    <span class="menu-icon">
-                        <i class="fa-solid fa-car"></i>
-                    </span>
-                    <span class="menu-title">@lang('messages.cars')</span>
-                    {{-- <i class="menu-arrow"></i> --}}
-                    @if (LaravelLocalization::getCurrentLocale() == 'en')
-                        <i class="fa-solid fa-arrow-down"
-                            style="line-height: 1;margin-left: auto;margin-right: 0"></i>
-                    @else
-                        <i class="fa-solid fa-arrow-down"
-                            style="margin-left: 0;margin-right: auto;line-height: 1"></i>
-                    @endif
-                </a>
-                <div class="collapse" id="mainCar">
-                    <ul class="nav flex-column sub-menu">
-                        <li class="nav-item"> <a class="nav-link"
-                                href="{{ route('main-cars.index') }}">@lang('messages.mainCars')</a></li>
-                        <li class="nav-item"> <a class="nav-link" href="{{ route('subcar.index') }}">
-                                @lang('messages.companyCars')</a></li>
+                <li class="nav-item menu-items">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#mainCar" aria-expanded="true"
+                        aria-controls="mainCar">
+                        <span class="menu-icon">
+                            <i class="fa-solid fa-car"></i>
+                        </span>
+                        <span class="menu-title">@lang('messages.cars')</span>
+                        {{-- <i class="menu-arrow"></i> --}}
+                        @if (LaravelLocalization::getCurrentLocale() == 'en')
+                            <i class="fa-solid fa-arrow-down"
+                                style="line-height: 1;margin-left: auto;margin-right: 0"></i>
+                        @else
+                            <i class="fa-solid fa-arrow-down"
+                                style="margin-left: 0;margin-right: auto;line-height: 1"></i>
+                        @endif
+                    </a>
+                    <div class="collapse" id="mainCar">
+                        <ul class="nav flex-column sub-menu">
+                            <li class="nav-item"> <a class="nav-link"
+                                    href="{{ route('main-cars.index') }}">@lang('messages.mainCars')</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="{{ route('subcar.index') }}">
+                                    @lang('messages.companyCars')</a></li>
 
-                    </ul>
-                </div>
-
-
-                {{-- petrol --}}
+                        </ul>
+                    </div>
 
 
-            <li class="nav-item menu-items">
-                <a class="nav-link" href="{{ route('petrol.index') }}">
-                    <span class="menu-icon">
-                        <i class="fa-solid fa-gas-pump" style="color: white"></i>
-                    </span>
-                    <span class="menu-title">@lang('messages.follow petrol')</span>
-                </a>
-            </li>
+                    {{-- petrol --}}
+
+
+                <li class="nav-item menu-items">
+                    <a class="nav-link" href="{{ route('petrol.index') }}">
+                        <span class="menu-icon">
+                            <i class="fa-solid fa-gas-pump" style="color: white"></i>
+                        </span>
+                        <span class="menu-title">@lang('messages.follow petrol')</span>
+                    </a>
+                </li>
             @endrole
 
 
 
             @role('company')
-             <li class="nav-item menu-items">
-                <a class="nav-link" href="{{ route('companyUserSection.index') }}">
-                    <span class="menu-icon">
-                        <i class="fa-solid fa-building" style="color: white"></i>
-                    </span>
-                    <span class="menu-title">@lang('messages.show my companies')</span>
-                </a>
-            </li>
-
+                <li class="nav-item menu-items">
+                    <a class="nav-link" href="{{ route('companyUserSection.index') }}">
+                        <span class="menu-icon">
+                            <i class="fa-solid fa-building" style="color: white"></i>
+                        </span>
+                        <span class="menu-title">@lang('messages.show my companies')</span>
+                    </a>
+                </li>
             @endrole
             @role('station')
-             <li class="nav-item menu-items">
-                <a class="nav-link" href="{{ route('station.index') }}">
-                    <span class="menu-icon">
-                        <i class="fa-solid fa-building" style="color: white"></i>
-                    </span>
-                    <span class="menu-title">@lang('messages.show station companies')</span>
-                </a>
-            </li>
-
+                <li class="nav-item menu-items">
+                    <a class="nav-link" href="{{ route('station.index') }}">
+                        <span class="menu-icon">
+                            <i class="fa-solid fa-building" style="color: white"></i>
+                        </span>
+                        <span class="menu-title">@lang('messages.show station companies')</span>
+                    </a>
+                </li>
             @endrole
 
 
@@ -250,9 +248,8 @@
         <!-- partial:partials/_navbar.html -->
         <nav class="navbar p-0 fixed-top d-flex flex-row">
             <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
-                <a class="navbar-brand brand-logo-mini" href="index.html"><img
-                        src="{{ asset('images/waqud.png') }}" style="width: 200px;height:50px"
-                        alt="logo" /></a>
+                <a class="navbar-brand brand-logo-mini" href="index.html"><img src="{{ asset('images/waqud.png') }}"
+                        style="width: 200px;height:50px" alt="logo" /></a>
             </div>
             <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
                 <button class="navbar-toggler navbar-toggler align-self-center" type="button"
@@ -456,6 +453,10 @@
 <!-- endinject -->
 <!-- Plugin js for this page -->
 
+{{-- <script src="https://cdn.jsdelivr.net/npm/fusioncharts@3.12.2/fusioncharts.js" charset="utf-8"></script> --}}
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js" charset="utf-8"></script>
 <script src="{{ asset('backend/assets/vendors/chart.js/Chart.min.js') }}"></script>
 <script src="{{ asset('backend/assets/vendors/progressbar.js/progressbar.min.js') }}"></script>
 <script src="{{ asset('backend/assets/vendors/jvectormap/jquery-jvectormap.min.js') }}"></script>

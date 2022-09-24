@@ -45,6 +45,10 @@
     </style>
 @endsection
 @section('content')
+<div style="background-color: #ddd;width: 80%;margin:auto">
+            {!! $chart->container() !!}
+            {!! $chart->script() !!}
+        </div>
     <div class="container">
         <div class="row" style="margin: auto">
             <div class="card col-3 text-center" style="width: 23rem;margin:3px">
