@@ -2,10 +2,10 @@
 
 @section('content')
     <div class="row text-center">
-        <div style="background-color: white;width: 80%;margin:auto">
+        {{-- <div style="background-color: white;width: 80%;margin:auto">
             {!! $chart->container() !!}
             {!! $chart->script() !!}
-        </div>
+        </div> --}}
 
         @foreach ($companies as $company)
             <div class="card col-lg-4 col-sm-12" style="margin:2px;width: 25rem;">
