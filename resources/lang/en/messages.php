@@ -10,6 +10,7 @@ return [
     "settings" => 'settings',
     "profile" => 'profile',
     "logout" => 'logout',
+     "login" => 'login',
     "password_confirmation" => 'password confirmation',
     "add user" => 'Add User',
     "users" => 'all users',
