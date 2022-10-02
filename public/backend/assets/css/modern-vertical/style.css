@@ -22345,7 +22345,8 @@ div.tagsinput {
 
 .auth.lock-full-bg {
   background: url("../../images/auth/bg6.jpg");
-  background-size: cover; }
+  background-size: cover;
+}
 
 .auth .lock-profile-img {
   width: 90px;
