@@ -217,6 +217,13 @@
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                         </div>
+                        <div class="form-group">
+                            <label for="average" class="col-form-label">@lang('messages.average')</label>
+                            <input type="number" name="average" class="form-control" id="average">
+                            @error('average')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
 
 
 
