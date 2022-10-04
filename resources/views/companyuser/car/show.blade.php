@@ -302,6 +302,8 @@
                                         <td style="background-color: red;color:white"> {{ $All }} </td>
                                         @elseif(isset($petrols[$index - 1]) && $All < $average)
                                         <td style="background-color: green;color:white"> {{ $All }} </td>
+                                        @else
+                                        <td></td>
                                         @endif
                                         <td>{{ isset($petrols[$index - 1]) ? $average : '' }}
                                         </td>
