@@ -45,10 +45,10 @@
     </style>
 @endsection
 @section('content')
-<div style="background-color: #ddd;width: 80%;margin:auto">
-            {!! $chart->container() !!}
-            {!! $chart->script() !!}
-        </div>
+    <div style="background-color: #ddd;width: 80%;margin:auto">
+        {!! $chart->container() !!}
+        {!! $chart->script() !!}
+    </div>
     <div class="container">
         <div class="row" style="margin: auto">
             <div class="card col-3 text-center" style="width: 23rem;margin:3px">
@@ -268,6 +268,7 @@
                                     <th id="thead">@lang('messages.all_costs')</th>
                                     <th id="thead">@lang('messages.kilometres')</th>
                                     <th id="thead">@lang('messages.consumption rate')</th>
+                                    <th id="thead">@lang('messages.average')</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -286,13 +287,23 @@
                                                         src="{{ URL::to($petrol->picture) }}"
                                                         alt="صورة العداد غير موجودة"></a></td>
                                         @else
-                                        <td>صورة العداد غير موجودة</td>
+                                            <td>صورة العداد غير موجودة</td>
                                         @endif
 
                                         <td>{{ $petrol->ekramyat }}</td>
                                         <td>{{ $petrol->all_costs }}</td>
                                         <td>{{ $petrol->all_kilometers }}</td>
-                                        <td>{{ isset($petrols[$index - 1]) ? number_format(($petrols[$index - 1]['all_kilometers'] - $petrol->all_kilometers) / $petrols[$index - 1]['litre'], 2) : '' }}
+                                        @php
+                                            if (isset($petrols[$index - 1])) {
+                                                $All = number_format(($petrols[$index - 1]['all_kilometers'] - $petrol->all_kilometers) / $petrols[$index - 1]['litre'], 2);
+                                            }
+                                        @endphp
+                                        @if(isset($petrols[$index - 1]) && $All > $average)
+                                        <td style="background-color: red;color:white"> {{ $All }} </td>
+                                        @elseif(isset($petrols[$index - 1]) && $All < $average)
+                                        <td style="background-color: green;color:white"> {{ $All }} </td>
+                                        @endif
+                                        <td>{{ isset($petrols[$index - 1]) ? $average : '' }}
                                         </td>
                                     </tr>
                                 @endforeach

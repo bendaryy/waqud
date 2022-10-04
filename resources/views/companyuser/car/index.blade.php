@@ -33,9 +33,11 @@
                         <h5 class="card-title">@lang('messages.car type') : {{ $car->sub_car }}</h5>
                         <h5 class="card-title">@lang('messages.car letters') : {{ $car->car_letters }}</h5>
                         <h5 class="card-title">@lang('messages.car numbers') : {{ $car->car_numbers }}</h5>
+                        <h5 class="card-title">@lang('messages.average') : {{ $car->average }}</h5>
                         {{-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the.
                     </p> --}}
                         <a href="{{ route('carpetrol',$car->id) }}" class="btn btn-primary">متابعة السيارة</a>
+                        <a href="{{ route('subcar.edit',$car->id) }}" class="btn btn-primary">تعديل السيارة</a>
                     </div>
                 </div>
             @endforeach

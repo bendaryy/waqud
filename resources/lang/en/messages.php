@@ -10,7 +10,7 @@ return [
     "settings" => 'settings',
     "profile" => 'profile',
     "logout" => 'logout',
-     "login" => 'login',
+    "login" => 'login',
     "password_confirmation" => 'password confirmation',
     "add user" => 'Add User',
     "users" => 'all users',
@@ -109,6 +109,8 @@ return [
     "allPaid" => 'all paid',
     "allKilometers" => 'all kilometers',
     "consumption rate" => "Consumption rate",
-    "picture"=>"counter picture",
-    "date from to"=>"search from date to another one"
+    "picture" => "counter picture",
+    "date from to" => "search from date to another one",
+    "average" => "average of car consumption",
+    "updated" => "updated successfully",
 ];

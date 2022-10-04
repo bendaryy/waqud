@@ -62,6 +62,10 @@
                 <td> {{ $subCar->model }}</td>
             </tr>
             <tr>
+                <th>@lang('messages.average')</th>
+                <td> {{ $subCar->average }}</td>
+            </tr>
+            <tr>
                 <th>@lang('messages.engine type')</th>
                 <td> {{ $subCar->engine_type }}</td>
             </tr>

@@ -104,7 +104,8 @@ class myCompaniesController extends Controller
 
         $sumAllKilo = $LastallKilo - $firstallKilo;
         $car = subCar::find($id);
-        return view('companyuser.car.show', compact('petrols', 'id', 'car', 'sumPetrol', 'sumPaid', 'sumAllKilo', 'chart'));
+        $average = $car->average;
+        return view('companyuser.car.show', compact('petrols', 'id', 'car', 'sumPetrol', 'sumPaid', 'sumAllKilo', 'chart','average'));
     }
     public function carPetrolThisWeek($id)
     {

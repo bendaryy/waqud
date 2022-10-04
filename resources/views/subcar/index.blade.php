@@ -99,6 +99,7 @@
                                     <th id="thead">@lang('messages.car name')</th>
                                     <th id="thead">@lang('messages.car letters')</th>
                                     <th id="thead">@lang('messages.car numbers')</th>
+                                    <th id="thead">@lang('messages.average')</th>
                                     <th id="thead">@lang('messages.car model')</th>
                                     <th id="thead">@lang('messages.engine type')</th>
                                     <th id="thead">@lang('messages.image')</th>
@@ -113,6 +114,7 @@
                                         <td>{{ $car->sub_car }}</td>
                                         <td>{{ $car->car_letters }}</td>
                                         <td>{{ $car->car_numbers }}</td>
+                                        <td>{{ $car->average }}</td>
                                         <td>{{ $car->model }}</td>
                                         <td>{{ $car->engine_type }}</td>
                                         <td>
@@ -136,6 +138,7 @@
                                             </form>
                                             {{-- <a class="btn btn-primary" style="padding:10px" href="{{URL::route('subcar.show', [$car->id, $car->company] )}}">show</a> --}}
                                             <a class="btn btn-primary" style="padding:10px" href="{{ route('subcar.show',[$car->id,$car->company,$car->car_letters,$car->car_numbers,$car->sub_car]) }}">@lang('messages.show car details')</a>
+                                            <a class="btn btn-secondary" style="padding:10px" href="{{ route('subcar.edit',$car->id) }}">@lang('messages.edit')</a>
                                         </td>
                                     </tr>
                                 @endforeach
